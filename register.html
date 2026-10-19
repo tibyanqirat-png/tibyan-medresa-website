@@ -3,45 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Student Registration | Tibyan Medresa</title>
+<title>Tibyan Medresa Registration</title>
 <style>
-body{font-family:Arial,sans-serif;background:#F7F0E4;color:#4A2C20;margin:0;padding:25px 15px}
-main{max-width:450px;margin:25px auto;background:#fffdf8;padding:25px;border-radius:12px;border:1px solid #e4d4b9}
+body{font-family:Arial;background:#F7F0E4;color:#4A2C20;padding:20px}
+main{max-width:450px;margin:20px auto;background:#fffdf8;padding:25px;border-radius:12px}
 h1{text-align:center}
-p{line-height:1.6}
 label{display:block;margin-top:16px;font-weight:bold}
-input{width:100%;padding:12px;margin-top:7px;box-sizing:border-box;border:1px solid #c9b89d;border-radius:6px;font-size:16px}
-button{width:100%;margin-top:22px;padding:14px;background:#C49A45;color:#2e1c12;border:0;border-radius:6px;font-size:16px;font-weight:bold}
-.note{font-size:13px;color:#78675a}
+input{width:100%;padding:12px;margin-top:6px;box-sizing:border-box;border:1px solid #c9b89d;border-radius:6px}
+button{width:100%;padding:14px;margin-top:22px;background:#C49A45;border:0;border-radius:6px;font-weight:bold}
+#message{line-height:1.6}
 </style>
 </head>
 <body>
 <main>
 <h1>Tibyan Medresa</h1>
-<p>Student Registration</p>
+<h3>Student Registration</h3>
 <form id="registration">
-<label for="name">Full name</label>
-<input id="name" name="name" required minlength="3" placeholder="Enter your full name">
+<label>Full name</label>
+<input id="name" required minlength="3">
 
-<label for="phone">Phone number</label>
-<input id="phone" name="phone" type="tel" required placeholder="+251...">
+<label>Phone number</label>
+<input id="phone" type="tel" required minlength="7">
 
-<label for="telegram">Telegram username</label>
-<input id="telegram" name="telegram" placeholder="@username">
+<label>Telegram username (optional)</label>
+<input id="telegram" placeholder="@username">
 
-<label for="email">Email (optional)</label>
-<input id="email" name="email" type="email" placeholder="you@example.com">
+<label>Email (optional)</label>
+<input id="email" type="email">
 
-<p class="note">Registration is not complete until your details are securely saved and Telegram membership is verified.</p>
-<button type="submit">Continue</button>
+<button id="submit" type="submit">Register</button>
 <p id="message" role="status"></p>
 </form>
 </main>
 <script>
-document.getElementById('registration').addEventListener('submit',function(e){
- e.preventDefault();
- document.getElementById('message').textContent =
- 'The registration form is a preview. Secure registration and Telegram verification will be connected in a later step.';
+const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
+const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
+
+document.getElementById("registration").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const button = document.getElementById("submit");
+  const message = document.getElementById("message");
+  button.disabled = true;
+  message.textContent = "Submitting registration...";
+
+  try {
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/students",
+      {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({
+          full_name: document.getElementById("name").value.trim(),
+          phone: document.getElementById("phone").value.trim(),
+          telegram_username: document.getElementById("telegram").value.trim() || null,
+          email: document.getElementById("email").value.trim() || null
+        })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Registration could not be saved.");
+    }
+
+    message.textContent = "Registration saved successfully!";
+    this.reset();
+  } catch (error) {
+    message.textContent = "Registration failed. Please check your connection and try again.";
+  } finally {
+    button.disabled = false;
+  }
 });
 </script>
 </body>
