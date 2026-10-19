@@ -56,5 +56,48 @@ document.getElementById("lessonMessage").textContent=
 "Preview only: this lesson has not been saved. Secure lesson storage will be connected next.";
 });
 </script>
+  <script>
+(async function () {
+  const token = localStorage.getItem("tibyan_access_token");
+
+  if (!token) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  const headers = {
+    apikey: "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj",
+    Authorization: "Bearer " + token
+  };
+
+  try {
+    const userRes = await fetch(
+      "https://vldyuegaoptahhlsldor.supabase.co/auth/v1/user",
+      { headers }
+    );
+
+    if (!userRes.ok) throw new Error("Not logged in");
+
+    const user = await userRes.json();
+
+    const adminRes = await fetch(
+      "https://vldyuegaoptahhlsldor.supabase.co/rest/v1/admin_users?select=user_id&user_id=eq." +
+      encodeURIComponent(user.id),
+      { headers }
+    );
+
+    if (!adminRes.ok) throw new Error("Access denied");
+
+    const admins = await adminRes.json();
+
+    if (!admins.length) {
+      document.body.innerHTML = "<h2>Access denied</h2>";
+    }
+  } catch (error) {
+    localStorage.removeItem("tibyan_access_token");
+    window.location.href = "login.html";
+  }
+})();
+</script>
 </body>
 </html>
