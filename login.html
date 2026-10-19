@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Login | Tibyan Medresa</title>
+<style>
+body{font-family:Arial;background:#F7F0E4;color:#4A2C20;padding:20px}
+main{max-width:420px;margin:35px auto;background:#fffdf8;padding:25px;border-radius:12px}
+h1{text-align:center}
+label{display:block;margin-top:16px;font-weight:bold}
+input{width:100%;padding:12px;margin-top:7px;box-sizing:border-box;border:1px solid #c9b89d;border-radius:6px}
+button{width:100%;padding:13px;margin-top:20px;background:#C49A45;border:0;border-radius:6px;font-weight:bold}
+a{color:#765038}
+</style>
+</head>
+<body>
+<main>
+<h1>Tibyan Medresa</h1>
+<h3>Student Login</h3>
+<form id="login">
+<label>Email</label>
+<input id="email" type="email" required>
+<label>Password</label>
+<input id="password" type="password" required minlength="6">
+<button id="submit">Log in</button>
+<p id="message" role="status"></p>
+<p>New student? <a href="register.html">Register here</a></p>
+</form>
+</main>
+<script>
+const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
+const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
+
+document.getElementById("login").addEventListener("submit",async function(e){
+ e.preventDefault();
+ const message=document.getElementById("message");
+ const button=document.getElementById("submit");
+ button.disabled=true;
+ message.textContent="Signing in...";
+ try{
+  const response=await fetch(SUPABASE_URL+"/auth/v1/token?grant_type=password",{
+   method:"POST",
+   headers:{"apikey":SUPABASE_KEY,"Content-Type":"application/json"},
+   body:JSON.stringify({
+    email:document.getElementById("email").value.trim(),
+    password:document.getElementById("password").value
+   })
+  });
+  const data=await response.json();
+  if(!response.ok) throw new Error(data.msg||data.message||"Check your email and password.");
+  message.textContent="Login successful! Student dashboard is our next step.";
+ }catch(error){
+  message.textContent=error.message||"Login failed. Please try again.";
+ }finally{
+  button.disabled=false;
+ }
+});
+</script>
+</body>
+</html>
