@@ -1,1 +1,89 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Dashboard | Tibyan Medresa</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#F7F0E4;color:#4A2C20}
+header{background:#4A2C20;color:white;padding:20px;text-align:center}
+header span{color:#C49A45}
+main{max-width:800px;margin:25px auto;padding:0 15px}
+.welcome,.card{background:#fffdf8;padding:22px;margin-bottom:16px;border:1px solid #e4d4b9;border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+h2{margin-top:0}
+button{padding:11px 17px;background:#C49A45;border:0;border-radius:6px;font-weight:bold;cursor:pointer}
+.muted{color:#78675a;line-height:1.6}
+</style>
+</head>
+<body>
+<header>
+<h1>TIBYAN <span>MEDRESA</span></h1>
+<p>Student Dashboard</p>
+</header>
+<main>
+<div class="welcome">
+<h2 id="welcome">Welcome!</h2>
+<p class="muted" id="email"></p>
+<button onclick="logout()">Log out</button>
+</div>
+
+<div class="grid">
+<div class="card">
+<h2>📚 Lessons</h2>
+<p class="muted">Your released weekly audio lessons will appear here.</p>
+<p>Lesson content will be added by the academy.</p>
+</div>
+<div class="card">
+<h2>📝 Exams</h2>
+<p class="muted">Your available subject examinations will appear here.</p>
+<p>Exams are not yet available.</p>
+</div>
+<div class="card">
+<h2>📊 Progress & Results</h2>
+<p class="muted">Your attendance, test results, and course progress will appear here.</p>
+<p>No results recorded yet.</p>
+</div>
+<div class="card">
+<h2>🏅 Certificate</h2>
+<p class="muted">Eligible students can view their verified certificate here.</p>
+<p>No certificate issued yet.</p>
+</div>
+</div>
+</main>
+<script>
+const SUPABASE_URL="https://vldyuegaoptahhlsldor.supabase.co";
+const SUPABASE_KEY="sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
+const token=localStorage.getItem("tibyan_access_token");
+
+if(!token){
+  window.location.replace("login.html");
+}else{
+  fetch(SUPABASE_URL+"/auth/v1/user",{
+    headers:{
+      "apikey":SUPABASE_KEY,
+      "Authorization":"Bearer "+token
+    }
+  })
+  .then(async r=>{
+    if(!r.ok) throw new Error("Session expired");
+    return r.json();
+  })
+  .then(user=>{
+    document.getElementById("welcome").textContent="Welcome, student!";
+    document.getElementById("email").textContent=user.email||"";
+  })
+  .catch(()=>{
+    localStorage.removeItem("tibyan_access_token");
+    window.location.replace("login.html");
+  });
+}
+
+function logout(){
+  localStorage.removeItem("tibyan_access_token");
+  window.location.href="login.html";
+}
+</script>
+</body>
+</html>
