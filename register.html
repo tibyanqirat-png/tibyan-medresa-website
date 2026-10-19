@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Registration | Tibyan Medresa</title>
+<style>
+body{font-family:Arial,sans-serif;background:#F7F0E4;color:#4A2C20;margin:0;padding:25px 15px}
+main{max-width:450px;margin:25px auto;background:#fffdf8;padding:25px;border-radius:12px;border:1px solid #e4d4b9}
+h1{text-align:center}
+p{line-height:1.6}
+label{display:block;margin-top:16px;font-weight:bold}
+input{width:100%;padding:12px;margin-top:7px;box-sizing:border-box;border:1px solid #c9b89d;border-radius:6px;font-size:16px}
+button{width:100%;margin-top:22px;padding:14px;background:#C49A45;color:#2e1c12;border:0;border-radius:6px;font-size:16px;font-weight:bold}
+.note{font-size:13px;color:#78675a}
+</style>
+</head>
+<body>
+<main>
+<h1>Tibyan Medresa</h1>
+<p>Student Registration</p>
+<form id="registration">
+<label for="name">Full name</label>
+<input id="name" name="name" required minlength="3" placeholder="Enter your full name">
+
+<label for="phone">Phone number</label>
+<input id="phone" name="phone" type="tel" required placeholder="+251...">
+
+<label for="telegram">Telegram username</label>
+<input id="telegram" name="telegram" placeholder="@username">
+
+<label for="email">Email (optional)</label>
+<input id="email" name="email" type="email" placeholder="you@example.com">
+
+<p class="note">Registration is not complete until your details are securely saved and Telegram membership is verified.</p>
+<button type="submit">Continue</button>
+<p id="message" role="status"></p>
+</form>
+</main>
+<script>
+document.getElementById('registration').addEventListener('submit',function(e){
+ e.preventDefault();
+ document.getElementById('message').textContent =
+ 'The registration form is a preview. Secure registration and Telegram verification will be connected in a later step.';
+});
+</script>
+</body>
+</html>
