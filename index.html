@@ -1,12 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tibyan Medresa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tibyan Medresa</title>
+<style>
+:root {
+  --brown:#4A2C20;
+  --gold:#C49A45;
+  --cream:#F7F0E4;
+  --white:#fffdf8;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:var(--brown);
+}
+header {
+  background:var(--brown);
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.logo { font-size:24px; font-weight:bold; }
+.logo span { color:var(--gold); }
+nav a {
+  color:white;
+  text-decoration:none;
+  margin:0 8px;
+  font-size:14px;
+}
+.hero {
+  padding:65px 7%;
+  text-align:center;
+  background:linear-gradient(135deg,#4A2C20,#765038);
+  color:white;
+}
+.hero .arabic { color:var(--gold); font-size:25px; }
+.hero h1 { font-size:clamp(32px,7vw,52px); margin:18px 0; }
+.hero p { max-width:600px; margin:0 auto 25px; line-height:1.8; }
+.btn {
+  display:inline-block;
+  background:var(--gold);
+  color:#2e1c12;
+  padding:13px 22px;
+  border:0;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+section { padding:42px 6%; }
+.heading { text-align:center; margin-bottom:28px; }
+.heading h2 { font-size:28px; margin-bottom:8px; }
+.heading p { color:#78675a; }
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card {
+  background:var(--white);
+  border:1px solid #e4d4b9;
+  border-radius:10px;
+  padding:23px;
+}
+.card .symbol { font-size:30px; }
+.card h3 { margin-bottom:8px; }
+.card p { line-height:1.7; color:#78675a; }
+.notice {
+  background:#ead9b5;
+  border-left:4px solid var(--gold);
+  padding:20px;
+  border-radius:5px;
+  line-height:1.7;
+}
+footer {
+  background:var(--brown);
+  color:#f7f0e4;
+  text-align:center;
+  padding:25px 15px;
+  line-height:1.8;
+}
+@media(max-width:600px) {
+  header { justify-content:center; text-align:center; }
+  nav { line-height:2; }
+  .hero { padding:45px 6%; }
+}
+</style>
 </head>
 <body>
-  <h1>Tibyan Medresa</h1>
-  <p>Seeking knowledge, building understanding.</p>
+
+<header>
+  <div class="logo">TIBYAN <span>MEDRESA</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#exams">Exams</a>
+    <a href="#student">Students</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero" id="home">
+    <div class="arabic">طَلَبُ الْعِلْمِ</div>
+    <h1>Welcome to Tibyan Medresa</h1>
+    <p>A place dedicated to seeking Islamic knowledge, deepening understanding, and growing through structured learning.</p>
+    <a class="btn" href="#student">Student Portal</a>
+  </div>
+
+  <section id="lessons">
+    <div class="heading">
+      <h2>Learning Center</h2>
+      <p>Continue your studies at your own pace.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="symbol">📚</div>
+        <h3>Weekly Lessons</h3>
+        <p>Access released audio lessons whenever you are ready to study.</p>
+      </div>
+      <div class="card">
+        <div class="symbol">🔒</div>
+        <h3>Organized Learning</h3>
+        <p>Lessons become available according to the academy's weekly schedule.</p>
+      </div>
+      <div class="card">
+        <div class="symbol">📈</div>
+        <h3>Your Progress</h3>
+        <p>Keep track of your learning journey and examination results.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="exams">
+    <div class="heading">
+      <h2>Examinations & Certificates</h2>
+      <p>Test your knowledge and track your achievements.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="symbol">📝</div>
+        <h3>Online Exams</h3>
+        <p>Take scheduled subject examinations and review your results.</p>
+      </div>
+      <div class="card">
+        <div class="symbol">🏅</div>
+        <h3>Certificates</h3>
+        <p>Eligible students can receive certificates with online verification.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="student">
+    <div class="heading">
+      <h2>Student Portal</h2>
+      <p>Your learning journey starts here.</p>
+    </div>
+    <div class="notice">
+      <strong>Student access</strong><br>
+      Registration, Telegram membership verification, personal dashboards,
+      lesson access, attendance, exams, and results will be connected in the
+      next development stages.
+      <p><a class="btn" href="https://t.me/">Open Telegram</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Tibyan Medresa</strong><br>
+  Islamic Knowledge • Learning • Progress<br>
+  <span style="color:#C49A45">Knowledge that benefits</span>
+</footer>
+
 </body>
 </html>
