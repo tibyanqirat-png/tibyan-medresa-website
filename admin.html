@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | Tibyan Medresa</title>
+<style>
+body{font-family:Arial;background:#F7F0E4;color:#4A2C20;margin:0}
+header{background:#4A2C20;color:white;padding:20px;text-align:center}
+main{max-width:800px;margin:25px auto;padding:0 15px}
+.card{background:#fffdf8;padding:22px;margin-bottom:18px;border:1px solid #e4d4b9;border-radius:10px}
+label{display:block;font-weight:bold;margin-top:13px}
+input,textarea,select{width:100%;padding:11px;margin-top:6px;box-sizing:border-box;border:1px solid #c9b89d;border-radius:6px}
+button{padding:12px 17px;margin-top:15px;background:#C49A45;border:0;border-radius:6px;font-weight:bold}
+.note{color:#78675a;line-height:1.6}
+</style>
+</head>
+<body>
+<header><h1>TIBYAN MEDRESA</h1><p>Admin Dashboard</p></header>
+<main>
+<div class="card">
+<h2>Academy Management</h2>
+<p class="note">This page is a starting layout. Secure admin access and database operations must be configured before using it to manage real students.</p>
+</div>
+
+<div class="card">
+<h2>📚 Add a Lesson</h2>
+<form id="lessonForm">
+<label>Lesson title</label>
+<input id="title" required>
+<label>Week number</label>
+<input id="week" type="number" min="1" required>
+<label>Audio file URL</label>
+<input id="audio" type="url" placeholder="https://..." required>
+<label>Release date</label>
+<input id="release" type="datetime-local" required>
+<button type="submit">Save lesson</button>
+<p id="lessonMessage" class="note"></p>
+</form>
+</div>
+
+<div class="card">
+<h2>📝 Exam Planning</h2>
+<p class="note">Exam creation, time limits, automatic grading, and results will be connected after secure admin access is set up.</p>
+</div>
+
+<div class="card">
+<h2>👥 Student Management</h2>
+<p class="note">Student records will be displayed here after secure admin permissions are configured.</p>
+</div>
+</main>
+<script>
+document.getElementById("lessonForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("lessonMessage").textContent=
+"Preview only: this lesson has not been saved. Secure lesson storage will be connected next.";
+});
+</script>
+</body>
+</html>
