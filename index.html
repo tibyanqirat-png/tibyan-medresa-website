@@ -4,77 +4,99 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ቲብያን መድረሳ | Tibyan Medresa</title>
+
 <style>
 :root {
-  --purple: #651957;
-  --gold: #E4AC5C;
-  --navy: #15162E;
+  --gold: #C28A24;
+  --gold-light: #F5D99D;
+  --gold-deep: #A96F12;
+  --dark: #35260F;
+  --dark-card: #49320F;
+  --cream: #FFF8E9;
 }
+
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: Arial, "Noto Sans Ethiopic", sans-serif;
-  color: white;
-  background: background: linear-gradient(
-  to bottom,
-  #FFF5DF 0%,
-  #F5D49A 35%,
-  #E4AC5C 70%,
-  #D69A48 100%
-);
+  color: var(--dark);
+  background: linear-gradient(
+    to bottom,
+    #FFF8E9 0%,
+    #F5E1B9 25%,
+    #E4BC76 60%,
+    #C28A24 100%
+  );
 }
+
 header {
-  min-height: 66px;
-  padding: 10px 2%;
-  background: var(--purple);
+  min-height: 70px;
+  padding: 10px 4%;
+  background: var(--dark);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
+
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
   color: white;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
+  text-decoration: none;
 }
+
 .logo {
   width: 48px;
   height: 48px;
-  border: 2px solid var(--gold);
-  outline: 1px solid #e9c8e2;
+  border: 2px solid var(--gold-light);
+  outline: 1px solid #FFFFFF80;
   outline-offset: -5px;
   display: grid;
   place-items: center;
-  color: var(--gold);
+  color: var(--gold-light);
   font-size: 25px;
-  clip-path: polygon(50% 0,65% 19%,90% 13%,87% 39%,100% 50%,87% 65%,91% 88%,65% 83%,50% 100%,35% 83%,9% 88%,13% 65%,0 50%,13% 35%,9% 13%,35% 19%);
+  clip-path: polygon(
+    50% 0,65% 19%,90% 13%,87% 39%,
+    100% 50%,87% 65%,91% 88%,65% 83%,
+    50% 100%,35% 83%,9% 88%,13% 65%,
+    0 50%,13% 35%,9% 13%,35% 19%
+  );
 }
+
 .brand small {
   display: block;
   font-size: 9px;
   margin-top: 5px;
   letter-spacing: 2px;
-  color: var(--gold);
+  color: var(--gold-light);
 }
+
 nav {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 3vw, 38px);
+  gap: clamp(10px, 2.5vw, 30px);
 }
+
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
+  transition: color .2s;
 }
-nav a:hover { color: var(--gold); }
+
+nav a:hover { color: var(--gold-light); }
+
 .login {
-  background: var(--gold);
-  color: white;
+  background: var(--gold-light);
+  color: var(--dark);
   padding: 11px 20px;
   border-radius: 25px;
   text-decoration: none;
@@ -82,271 +104,431 @@ nav a:hover { color: var(--gold); }
   font-weight: bold;
   font-size: 12px;
 }
+
 .hero {
   text-align: center;
-  padding: 64px 5% 28px;
-  min-height: 280px;
+  padding: 80px 5% 65px;
+  min-height: 340px;
+  color: white;
   background:
-    linear-gradient(#321a19a1,#55321b7a),
+    linear-gradient(180deg, #35260F66, #35260FD9),
     url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85")
     center 42% / cover;
 }
+
 .hero h1 {
-  font-size: clamp(27px, 4.5vw, 45px);
-  margin: 12px 0;
-  text-shadow: 0 2px 5px #352019;
+  font-size: clamp(27px, 4.5vw, 46px);
+  margin: 12px 0 18px;
+  text-shadow: 0 2px 8px #0008;
 }
+
 .hero p {
-  line-height: 1.8;
-  font-size: 14px;
+  line-height: 1.9;
+  font-size: 15px;
   max-width: 650px;
-  margin: 0 auto 24px;
+  margin: 0 auto 27px;
 }
+
 .gold-btn {
   display: inline-block;
-  background: var(--gold);
-  color: white;
-  padding: 12px 25px;
+  background: linear-gradient(135deg, #F5D99D, #C28A24);
+  color: var(--dark);
+  padding: 13px 27px;
   border-radius: 28px;
   text-decoration: none;
   border: 0;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 5px 15px #0003;
 }
+
 .play {
-  background: white;
-  color: var(--navy);
+  background: var(--dark);
+  color: var(--gold-light);
   border-radius: 50%;
   padding: 4px 7px;
   margin-right: 7px;
 }
+
 .levels {
   text-align: center;
-  padding: 28px 5% 35px;
-  background: #c98e4a55;
-  border-top: 1px solid #ffffff30;
-  border-bottom: 1px solid #ffffff30;
+  padding: 38px 5% 45px;
+  background: linear-gradient(
+    180deg,
+    #FFF8E9E8,
+    #F5E1B9B8
+  );
+  border-top: 1px solid #FFFFFFAA;
+  border-bottom: 1px solid #A96F1233;
 }
-h2 { font-size: 23px; }
+
+h2 {
+  font-size: 25px;
+  margin-top: 0;
+}
+
 .level-grid {
-  max-width: 850px;
-  margin: 30px auto 0;
+  max-width: 900px;
+  margin: 32px auto 0;
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 22%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
+
 .level-card {
-  background: var(--navy);
-  border-radius: 20px;
-  padding: 18px 17px;
-  min-height: 180px;
+  background: linear-gradient(145deg, #604515, #35260F);
+  color: white;
+  border: 1px solid #DDB15E;
+  border-radius: 18px;
+  padding: 25px 20px;
+  min-height: 195px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 10px 25px #65430F20;
 }
+
 .level-card .play-icon {
   display: grid;
   place-items: center;
-  background: var(--gold);
-  color: var(--navy);
-  width: 34px;
-  height: 34px;
+  background: var(--gold-light);
+  color: var(--dark);
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   font-size: 17px;
 }
-.level-card h3 { font-size: 17px; margin: 10px 0; }
-.level-card p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #e2dfeb;
-  margin: 0 0 13px;
+
+.level-card h3 {
+  font-size: 18px;
+  margin: 14px 0 10px;
 }
+
+.level-card p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #F5E9D0;
+  margin: 0 0 18px;
+}
+
 .small-btn {
-  background: var(--gold);
-  color: white;
+  background: var(--gold-light);
+  color: var(--dark);
   text-decoration: none;
   border-radius: 25px;
-  padding: 7px 24px;
-  font-size: 11px;
+  padding: 10px 23px;
+  font-size: 12px;
   font-weight: bold;
   margin-top: auto;
 }
+
 .resources {
   text-align: center;
-  padding: 28px 4% 45px;
+  padding: 38px 4% 50px;
+  background: linear-gradient(
+    180deg,
+    #E4BC7660,
+    #FFF8E9C9
+  );
 }
-.resources h2 { font-size: 19px; }
+
+.resources h2 { font-size: 21px; }
+
 .book-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 5vw, 50px);
-  margin: 30px auto 45px;
+  gap: clamp(10px, 4vw, 35px);
+  margin: 32px auto 50px;
+  max-width: 900px;
 }
+
 .book {
-  width: clamp(68px, 11vw, 105px);
+  width: clamp(55px, 11vw, 100px);
   aspect-ratio: 1 / 1.12;
-  background: var(--navy);
-  border-radius: 19px;
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #805719, #35260F);
+  border: 1px solid var(--gold-light);
+  border-radius: 12px;
   display: grid;
   place-items: center;
-  color: white;
-  font-size: clamp(28px, 5vw, 48px);
+  color: var(--gold-light);
+  font-size: clamp(25px, 5vw, 45px);
+  box-shadow: 0 7px 16px #35260F25;
 }
+
 .arrow {
-  background: black;
-  color: white;
+  background: var(--dark);
+  color: var(--gold-light);
   width: 38px;
   height: 38px;
   border: none;
   border-radius: 50%;
   font-size: 23px;
   cursor: pointer;
+  flex-shrink: 0;
 }
-.level-two { margin-top: 45px; }
+
+.arrow:hover { background: var(--gold-deep); }
+
+.level-two { margin-top: 48px; }
+
 .coming {
-  background: var(--purple);
-  color: white;
-  padding: 13px 30px;
+  background: var(--dark);
+  color: var(--gold-light);
+  padding: 14px 30px;
   border-radius: 30px;
   display: inline-block;
   margin-top: 15px;
   text-decoration: none;
   font-weight: bold;
 }
+
 .registration {
-  padding: 36px 5%;
+  padding: 42px 5% 50px;
   text-align: center;
-  background: #d39a5350;
+  background: linear-gradient(
+    180deg,
+    #FFF8E9E8,
+    #D9A64E99
+  );
 }
+
 .registration h2 { margin-bottom: 10px; }
-.registration p { font-size: 14px; line-height: 1.8; }
+
+.registration > p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
 .reg-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,260px));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 260px));
+  gap: 22px;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 28px;
 }
+
 .reg-card {
-  background: var(--navy);
+  background: linear-gradient(145deg, #604515, #35260F);
+  color: white;
+  border: 1px solid #DDB15E;
   border-radius: 18px;
-  padding: 25px 15px;
+  padding: 28px 17px;
+  box-shadow: 0 8px 22px #65430F25;
 }
-.reg-card .person { font-size: 32px; color: var(--gold); }
-.reg-card h3 { margin: 12px 0; }
-.reg-card p { color: #e2dfeb; font-size: 12px; }
+
+.reg-card .person {
+  font-size: 35px;
+  color: var(--gold-light);
+}
+
+.reg-card h3 { margin: 13px 0; }
+
+.reg-card p {
+  color: #F5E9D0;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
 .reg-card a {
   display: inline-block;
-  margin-top: 10px;
-  background: var(--gold);
-  color: white;
+  margin-top: 12px;
+  background: var(--gold-light);
+  color: var(--dark);
   text-decoration: none;
   border-radius: 25px;
-  padding: 10px 17px;
+  padding: 11px 20px;
   font-size: 12px;
   font-weight: bold;
 }
+
 .telegram {
   position: fixed;
   right: 20px;
   bottom: 20px;
   width: 48px;
   height: 48px;
-  background: #25a5e8;
+  background: #25A5E8;
   color: white;
   border-radius: 50%;
   display: grid;
   place-items: center;
   text-decoration: none;
   font-size: 24px;
-  box-shadow: 0 3px 8px #0002;
+  box-shadow: 0 3px 12px #0003;
+  z-index: 10;
 }
+
 footer {
-  background: var(--purple);
+  background: var(--dark);
+  color: white;
   text-align: center;
-  padding: 30px 15px 22px;
+  padding: 35px 15px 25px;
   line-height: 1.9;
 }
+
 .footer-logo {
   width: 70px;
   height: 70px;
-  margin: 0 auto 14px;
+  margin: 0 auto 18px;
   display: grid;
   place-items: center;
-  border: 4px double var(--gold);
+  border: 3px double var(--gold-light);
   transform: rotate(45deg);
   font-size: 31px;
-  color: white;
+  color: var(--gold-light);
 }
+
 .footer-logo span { transform: rotate(-45deg); }
+
 .socials { margin: 15px 0; }
+
 .socials a {
-  color: white;
-  font-size: 19px;
-  margin: 0 4px;
+  color: var(--gold-light);
+  font-size: 21px;
+  margin: 0 7px;
   text-decoration: none;
 }
-@media(max-width:600px) {
-  header { flex-wrap: wrap; justify-content: center; }
-  .brand { margin-right: auto; }
-  nav { order: 3; width: 100%; justify-content: center; gap: 15px; }
+
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 12px 4%;
+  }
+
+  .brand { font-size: 14px; }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 8px;
+  }
+
   nav a { font-size: 11px; }
+
   .login { padding: 9px 13px; }
-  .hero { padding-top: 52px; }
+
+  .hero {
+    padding: 60px 6% 50px;
+    min-height: 300px;
+  }
+
+  .hero p { font-size: 13px; }
+
   .level-grid { gap: 14px; }
-  .level-card { padding: 15px 9px; min-height: 190px; }
+
+  .level-card {
+    padding: 18px 10px;
+    min-height: 205px;
+  }
+
   .level-card h3 { font-size: 14px; }
+
   .level-card p { font-size: 11px; }
-  .book-row { gap: 9px; }
-  .book { border-radius: 14px; }
-  .arrow { width: 30px; height: 30px; font-size: 18px; flex-shrink: 0; }
+
+  .small-btn {
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .book-row { gap: 8px; }
+
+  .book { border-radius: 10px; }
+
+  .arrow {
+    width: 29px;
+    height: 29px;
+    font-size: 18px;
+  }
+
+  .resources h2 { font-size: 18px; }
+
+  .reg-grid { gap: 12px; }
+
+  .reg-card { padding: 22px 9px; }
+
+  .reg-card h3 { font-size: 14px; }
+
+  .reg-card p { font-size: 11px; }
+}
+
+@media (max-width: 360px) {
+  nav { gap: 10px; }
+  nav a { font-size: 10px; }
+  .brand small { letter-spacing: 1px; }
+  .book-row { gap: 5px; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <a href="#home" class="brand" style="text-decoration:none">
+  <a href="#home" class="brand">
     <div class="logo">۞</div>
-    <div>TIBYAN<small> TIBYAN QIR'AT CENTER</small></div>
+    <div>
+      TIBYAN
+      <small>TIBYAN QIR'AT CENTER</small>
+    </div>
   </a>
+
   <nav>
     <a href="#levels">ደረጃ 1</a>
     <a href="#resources">ደረጃ 2</a>
     <a href="#registration">ምዝገባ</a>
     <a href="#about">ስለ እኛ</a>
   </nav>
+
   <a class="login" href="#registration">🔒 ግባ</a>
 </header>
 
 <main>
+
   <section class="hero" id="home">
     <h1>ተቋማችን የቁርአን ማዕከል</h1>
-    <p>መልካም ዕውቀት እና ጠቃሚ ትምህርት በቀላሉ የሚያገኙበት መድረሳ</p>
-    <a href="#levels" class="gold-btn"><span class="play">▶</span> ለመማር ይግቡ</a>
+    <p>
+      መልካም ዕውቀት እና ጠቃሚ ትምህርት
+      በቀላሉ የሚያገኙበት መድረሳ
+    </p>
+    <a href="#levels" class="gold-btn">
+      <span class="play">▶</span> ለመማር ይግቡ
+    </a>
   </section>
 
   <section class="levels" id="levels">
     <h2>የትምህርት ደረጃዎች</h2>
+
     <div class="level-grid">
+
       <article class="level-card">
         <div class="play-icon">▶</div>
         <h3>ደረጃ 1 ትምህርት</h3>
         <p>የቀድሞ ትምህርቶችን እና የተዘጋጁ ማስታወሻዎችን ያግኙ።</p>
         <a href="#registration" class="small-btn">ትምህርቱን ይመልከቱ</a>
       </article>
+
       <article class="level-card">
         <div class="play-icon">▶</div>
         <h3>ደረጃ 2 ትምህርት</h3>
         <p>የሚቀጥሉትን ዘጠኝ የትምህርት ዘርፎች ይወቁ።</p>
         <a href="#registration" class="small-btn">በቅርቡ ይመጣል</a>
       </article>
+
     </div>
   </section>
 
   <section class="resources" id="resources">
-    <h2>የደረጃ 1 ትምህርት በ10ወር ውስጥ የተሰጡ ትምህርቶች</h2>
+    <h2>የደረጃ 1 ትምህርት በ10 ወር ውስጥ የተሰጡ ትምህርቶች</h2>
+
     <div class="book-row">
       <button class="arrow" aria-label="Previous books" onclick="moveBooks(-1)">‹</button>
       <div class="book">♧</div>
@@ -356,6 +538,7 @@ footer {
       <div class="book">♧</div>
       <button class="arrow" aria-label="Next books" onclick="moveBooks(1)">›</button>
     </div>
+
     <div class="level-two">
       <h2>የደረጃ 2 ትምህርት የሚጀምርበት ቀን</h2>
       <a href="#registration" class="coming">⌛ &nbsp; በቅርቡ ይመጣል</a>
@@ -365,21 +548,26 @@ footer {
   <section class="registration" id="registration">
     <h2>የተማሪ ምዝገባ</h2>
     <p>ለመመዝገብ የሚስማማዎትን ይምረጡ።</p>
+
     <div class="reg-grid">
+
       <article class="reg-card">
         <div class="person">♂</div>
         <h3>የወንዶች ምዝገባ</h3>
         <p>ለወንድ ተማሪዎች የተለየ ምዝገባ</p>
         <a href="male-register.html">ይመዝገቡ</a>
       </article>
+
       <article class="reg-card">
         <div class="person">♀</div>
         <h3>የሴቶች ምዝገባ</h3>
         <p>ለሴት ተማሪዎች የተለየ ምዝገባ</p>
         <a href="female-register.html">ይመዝገቡ</a>
       </article>
+
     </div>
   </section>
+
 </main>
 
 <a class="telegram" href="https://t.me/" aria-label="Telegram">➤</a>
@@ -387,12 +575,14 @@ footer {
 <footer id="about">
   <div class="footer-logo"><span>۞</span></div>
   <strong>TIBYAN QIR'AT CENTER</strong>
+
   <div class="socials">
     <a href="https://instagram.com/" aria-label="Instagram">◎</a>
     <a href="https://facebook.com/" aria-label="Facebook">f</a>
     <a href="https://t.me/" aria-label="Telegram">➤</a>
     <a href="https://youtube.com/" aria-label="YouTube">▶</a>
   </div>
+
   <strong style="font-size:14px">@tibyanqirat</strong>
 </footer>
 
@@ -400,9 +590,14 @@ footer {
 function moveBooks(direction) {
   const row = document.querySelector('.book-row');
   const books = Array.from(row.querySelectorAll('.book'));
-  if (direction > 0) row.insertBefore(books[0], books[books.length - 1].nextSibling);
-  else row.insertBefore(books[books.length - 1], books[0]);
+
+  if (direction > 0) {
+    row.insertBefore(books[0], books[books.length - 1].nextSibling);
+  } else {
+    row.insertBefore(books[books.length - 1], books[0]);
+  }
 }
 </script>
+
 </body>
 </html>
