@@ -1,362 +1,402 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#17152F">
-<title>Tibyan Medresa | Islamic Knowledge Academy</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ቲብያን መድረሳ | Tibyan Medresa</title>
 <style>
 :root {
-  --navy: #17152F;
-  --purple: #28234D;
-  --gold: #D9AD60;
-  --cream: #FAF7F0;
-  --white: #FFFFFF;
-  --muted: #77758B;
+  --purple: #651957;
+  --gold: #E4AC5C;
+  --navy: #15162E;
 }
-* { box-sizing: border-box; scroll-behavior: smooth; }
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--cream);
-  color: var(--navy);
+  font-family: Arial, "Noto Sans Ethiopic", sans-serif;
+  color: white;
+  background: var(--gold);
 }
 header {
-  background: var(--navy);
-  color: white;
-  padding: 17px 6%;
+  min-height: 66px;
+  padding: 10px 2%;
+  background: var(--purple);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 12px;
 }
-.logo { font-size: 23px; font-weight: bold; letter-spacing: 1px; }
-.logo span { color: var(--gold); }
-nav { display: flex; flex-wrap: wrap; gap: 18px; }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--gold);
+  outline: 1px solid #e9c8e2;
+  outline-offset: -5px;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 25px;
+  clip-path: polygon(50% 0,65% 19%,90% 13%,87% 39%,100% 50%,87% 65%,91% 88%,65% 83%,50% 100%,35% 83%,9% 88%,13% 65%,0 50%,13% 35%,9% 13%,35% 19%);
+}
+.brand small {
+  display: block;
+  font-size: 9px;
+  margin-top: 5px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 3vw, 38px);
+}
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
 }
 nav a:hover { color: var(--gold); }
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 76px 6% 82px;
-  background: radial-gradient(circle at top, #393264, var(--navy) 72%);
+.login {
+  background: var(--gold);
   color: white;
-}
-.hero:before {
-  content: "۞";
-  position: absolute;
-  font-size: 260px;
-  color: rgba(217,173,96,.055);
-  left: -45px;
-  top: -65px;
-}
-.hero:after {
-  content: "۞";
-  position: absolute;
-  font-size: 260px;
-  color: rgba(217,173,96,.055);
-  right: -45px;
-  bottom: -100px;
-}
-.hero-content { position: relative; z-index: 1; }
-.arabic {
-  color: var(--gold);
-  font-size: 31px;
-  margin-bottom: 15px;
-  line-height: 1.8;
-}
-.eyebrow {
-  color: var(--gold);
+  padding: 11px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: bold;
   font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+}
+.hero {
+  text-align: center;
+  padding: 64px 5% 28px;
+  min-height: 280px;
+  background:
+    linear-gradient(#321a19a1,#55321b7a),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85")
+    center 42% / cover;
 }
 .hero h1 {
-  font-size: clamp(34px, 6vw, 57px);
-  line-height: 1.15;
-  margin: 17px auto;
-  max-width: 800px;
+  font-size: clamp(27px, 4.5vw, 45px);
+  margin: 12px 0;
+  text-shadow: 0 2px 5px #352019;
 }
 .hero p {
-  max-width: 660px;
-  margin: 0 auto 28px;
-  line-height: 1.9;
-  color: #E0DEEB;
-  font-size: 16px;
+  line-height: 1.8;
+  font-size: 14px;
+  max-width: 650px;
+  margin: 0 auto 24px;
 }
-.btn {
+.gold-btn {
   display: inline-block;
-  padding: 13px 20px;
-  border-radius: 7px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: .2s;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn-gold { background: var(--gold); color: var(--navy); }
-.btn-outline {
-  color: white;
-  border: 1px solid var(--gold);
-}
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-section { padding: 58px 6%; }
-.heading { text-align: center; margin-bottom: 32px; }
-.heading h2 { font-size: clamp(25px,4vw,34px); margin: 0 0 12px; }
-.heading p { color: var(--muted); line-height: 1.7; margin: 0; }
-.gold-line {
-  width: 55px;
-  height: 3px;
   background: var(--gold);
-  margin: 17px auto;
-  border-radius: 5px;
-}
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 20px;
-}
-.card {
-  background: white;
-  border: 1px solid #EAE3D6;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 5px 20px rgba(23,21,47,.035);
-}
-.card h3 { margin: 13px 0 9px; }
-.card p { color: var(--muted); line-height: 1.8; font-size: 14px; }
-.symbol {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: #F6EEDC;
-  font-size: 26px;
-}
-.level-number {
-  color: #AD8137;
-  font-size: 12px;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 28px;
+  text-decoration: none;
+  border: 0;
   font-weight: bold;
-  letter-spacing: 2px;
+  cursor: pointer;
 }
-.level-card { border-top: 4px solid var(--gold); }
-.level-card .btn { margin-top: 8px; }
-
-.registration { background: #F0EBE0; }
-.registration-grid {
+.play {
+  background: white;
+  color: var(--navy);
+  border-radius: 50%;
+  padding: 4px 7px;
+  margin-right: 7px;
+}
+.levels {
+  text-align: center;
+  padding: 28px 5% 35px;
+  background: #c98e4a55;
+  border-top: 1px solid #ffffff30;
+  border-bottom: 1px solid #ffffff30;
+}
+h2 { font-size: 23px; }
+.level-grid {
+  max-width: 850px;
+  margin: 30px auto 0;
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 22px;
-  max-width: 850px;
-  margin: auto;
+  gap: 22%;
+}
+.level-card {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 18px 17px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.level-card .play-icon {
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: var(--navy);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 17px;
+}
+.level-card h3 { font-size: 17px; margin: 10px 0; }
+.level-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #e2dfeb;
+  margin: 0 0 13px;
+}
+.small-btn {
+  background: var(--gold);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 7px 24px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: auto;
+}
+.resources {
+  text-align: center;
+  padding: 28px 4% 45px;
+}
+.resources h2 { font-size: 19px; }
+.book-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 5vw, 50px);
+  margin: 30px auto 45px;
+}
+.book {
+  width: clamp(68px, 11vw, 105px);
+  aspect-ratio: 1 / 1.12;
+  background: var(--navy);
+  border-radius: 19px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: clamp(28px, 5vw, 48px);
+}
+.arrow {
+  background: black;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  font-size: 23px;
+  cursor: pointer;
+}
+.level-two { margin-top: 45px; }
+.coming {
+  background: var(--purple);
+  color: white;
+  padding: 13px 30px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.registration {
+  padding: 36px 5%;
+  text-align: center;
+  background: #d39a5350;
+}
+.registration h2 { margin-bottom: 10px; }
+.registration p { font-size: 14px; line-height: 1.8; }
+.reg-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,260px));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 25px;
 }
 .reg-card {
-  background: white;
-  border-radius: 14px;
-  padding: 30px 22px;
-  text-align: center;
-  border: 1px solid #E6D9C2;
-}
-.reg-icon {
-  width: 72px;
-  height: 72px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 17px;
-  border-radius: 50%;
   background: var(--navy);
-  color: var(--gold);
-  font-size: 32px;
+  border-radius: 18px;
+  padding: 25px 15px;
 }
-.reg-card p { color: var(--muted); line-height: 1.8; font-size: 14px; }
-.reg-card .btn { width: 100%; margin-top: 10px; }
-
-.notice {
-  max-width: 850px;
-  margin: auto;
-  padding: 25px;
-  border-left: 4px solid var(--gold);
-  border-radius: 8px;
-  background: white;
+.reg-card .person { font-size: 32px; color: var(--gold); }
+.reg-card h3 { margin: 12px 0; }
+.reg-card p { color: #e2dfeb; font-size: 12px; }
+.reg-card a {
+  display: inline-block;
+  margin-top: 10px;
+  background: var(--gold);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 10px 17px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.telegram {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  background: #25a5e8;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 3px 8px #0002;
+}
+footer {
+  background: var(--purple);
+  text-align: center;
+  padding: 30px 15px 22px;
   line-height: 1.9;
 }
-.notice a { color: #55427E; font-weight: bold; }
-
-footer {
-  background: var(--navy);
-  color: #E4E0EF;
-  text-align: center;
-  padding: 32px 15px;
-  line-height: 2;
+.footer-logo {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border: 4px double var(--gold);
+  transform: rotate(45deg);
+  font-size: 31px;
+  color: white;
 }
-footer strong { color: white; font-size: 20px; }
-footer span { color: var(--gold); }
-
+.footer-logo span { transform: rotate(-45deg); }
+.socials { margin: 15px 0; }
+.socials a {
+  color: white;
+  font-size: 19px;
+  margin: 0 4px;
+  text-decoration: none;
+}
 @media(max-width:600px) {
-  header { justify-content: center; text-align: center; }
-  nav { justify-content: center; gap: 13px; }
-  nav a { font-size: 13px; }
-  .hero { padding: 55px 6%; }
-  section { padding: 43px 5%; }
-  .registration-grid { grid-template-columns: 1fr; }
+  header { flex-wrap: wrap; justify-content: center; }
+  .brand { margin-right: auto; }
+  nav { order: 3; width: 100%; justify-content: center; gap: 15px; }
+  nav a { font-size: 11px; }
+  .login { padding: 9px 13px; }
+  .hero { padding-top: 52px; }
+  .level-grid { gap: 14px; }
+  .level-card { padding: 15px 9px; min-height: 190px; }
+  .level-card h3 { font-size: 14px; }
+  .level-card p { font-size: 11px; }
+  .book-row { gap: 9px; }
+  .book { border-radius: 14px; }
+  .arrow { width: 30px; height: 30px; font-size: 18px; flex-shrink: 0; }
 }
 </style>
 </head>
-
 <body>
+
 <header>
-  <div class="logo">TIBYAN <span>MEDRESA</span></div>
+  <a href="#home" class="brand" style="text-decoration:none">
+    <div class="logo">۞</div>
+    <div>TIBYAN<small> TIBYAN QIR'AT CENTER</small></div>
+  </a>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#levels">Study Levels</a>
-    <a href="#lessons">Learning</a>
-    <a href="#registration">Registration</a>
-    <a href="#student">Student Portal</a>
+    <a href="#levels">ደረጃ 1</a>
+    <a href="#resources">ደረጃ 2</a>
+    <a href="#registration">ምዝገባ</a>
+    <a href="#about">ስለ እኛ</a>
   </nav>
+  <a class="login" href="#registration">🔒 ግባ</a>
 </header>
 
 <main>
   <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="arabic" lang="ar" dir="rtl">طَلَبُ الْعِلْمِ</div>
-      <div class="eyebrow">Islamic Knowledge Academy</div>
-      <h1>Welcome to Tibyan Medresa</h1>
-      <div class="gold-line"></div>
-      <p>
-        A place to seek beneficial knowledge, strengthen your understanding
-        of Islam, and grow through organized lessons and guided learning.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn btn-gold" href="#registration">Register as a Student</a>
-        <a class="btn btn-outline" href="#levels">Explore Study Levels</a>
-      </div>
-    </div>
+    <h1>ተቋማችን የቁርአን ማዕከል</h1>
+    <p>መልካም ዕውቀት እና ጠቃሚ ትምህርት በቀላሉ የሚያገኙበት መድረሳ</p>
+    <a href="#levels" class="gold-btn"><span class="play">▶</span> ለመማር ይግቡ</a>
   </section>
 
-  <section id="levels">
-    <div class="heading">
-      <h2>Our Study Levels</h2>
-      <p>Continue your Islamic learning journey with Tibyan Medresa.</p>
-      <div class="gold-line"></div>
-    </div>
-
-    <div class="cards">
-      <article class="card level-card">
-        <div class="level-number">LEVEL 01</div>
-        <div class="symbol">📚</div>
-        <h3>Level One</h3>
-        <p>
-          Access the lessons and learning materials from our first level.
-          Students must register and join the official Telegram channel.
-        </p>
-        <a class="btn btn-gold" href="#registration">Student Registration</a>
+  <section class="levels" id="levels">
+    <h2>የትምህርት ደረጃዎች</h2>
+    <div class="level-grid">
+      <article class="level-card">
+        <div class="play-icon">▶</div>
+        <h3>ደረጃ 1 ትምህርት</h3>
+        <p>የቀድሞ ትምህርቶችን እና የተዘጋጁ ማስታወሻዎችን ያግኙ።</p>
+        <a href="#registration" class="small-btn">ትምህርቱን ይመልከቱ</a>
       </article>
-
-      <article class="card level-card">
-        <div class="level-number">LEVEL 02</div>
-        <div class="symbol">📖</div>
-        <h3>Level Two</h3>
-        <p>
-          Discover the next stage of study, with nine planned subjects
-          designed to deepen your Islamic knowledge.
-        </p>
-        <a class="btn btn-gold" href="#registration">Student Registration</a>
+      <article class="level-card">
+        <div class="play-icon">▶</div>
+        <h3>ደረጃ 2 ትምህርት</h3>
+        <p>የሚቀጥሉትን ዘጠኝ የትምህርት ዘርፎች ይወቁ።</p>
+        <a href="#registration" class="small-btn">በቅርቡ ይመጣል</a>
       </article>
     </div>
   </section>
 
-  <section id="lessons">
-    <div class="heading">
-      <h2>Your Learning Journey</h2>
-      <p>Study, review, and build your knowledge step by step.</p>
-      <div class="gold-line"></div>
+  <section class="resources" id="resources">
+    <h2>የደረጃ 1 ትምህርት በ10ወር ውስጥ የተሰጡ ትምህርቶች</h2>
+    <div class="book-row">
+      <button class="arrow" aria-label="Previous books" onclick="moveBooks(-1)">‹</button>
+      <div class="book">♧</div>
+      <div class="book">♧</div>
+      <div class="book">♧</div>
+      <div class="book">♧</div>
+      <div class="book">♧</div>
+      <button class="arrow" aria-label="Next books" onclick="moveBooks(1)">›</button>
     </div>
-
-    <div class="cards">
-      <article class="card">
-        <div class="symbol">🎧</div>
-        <h3>Lesson Materials</h3>
-        <p>Find recorded lessons and learning resources organized by level and subject.</p>
-      </article>
-
-      <article class="card">
-        <div class="symbol">📝</div>
-        <h3>Examinations</h3>
-        <p>Access examinations when they are made available to registered students.</p>
-      </article>
-
-      <article class="card">
-        <div class="symbol">📈</div>
-        <h3>Learning Progress</h3>
-        <p>Student progress and examination results can be added to your personal portal.</p>
-      </article>
+    <div class="level-two">
+      <h2>የደረጃ 2 ትምህርት የሚጀምርበት ቀን</h2>
+      <a href="#registration" class="coming">⌛ &nbsp; በቅርቡ ይመጣል</a>
     </div>
   </section>
 
   <section class="registration" id="registration">
-    <div class="heading">
-      <h2>Student Registration</h2>
-      <p>Choose the correct registration option to get started.</p>
-      <div class="gold-line"></div>
-    </div>
-
-    <div class="registration-grid">
+    <h2>የተማሪ ምዝገባ</h2>
+    <p>ለመመዝገብ የሚስማማዎትን ይምረጡ።</p>
+    <div class="reg-grid">
       <article class="reg-card">
-        <div class="reg-icon">♂</div>
-        <h3>Male Registration</h3>
-        <p>Open the separate registration page for male students.</p>
-        <a class="btn btn-gold" href="male-register.html">Register as Male</a>
+        <div class="person">♂</div>
+        <h3>የወንዶች ምዝገባ</h3>
+        <p>ለወንድ ተማሪዎች የተለየ ምዝገባ</p>
+        <a href="male-register.html">ይመዝገቡ</a>
       </article>
-
       <article class="reg-card">
-        <div class="reg-icon">♀</div>
-        <h3>Female Registration</h3>
-        <p>Open the separate registration page for female students.</p>
-        <a class="btn btn-gold" href="female-register.html">Register as Female</a>
+        <div class="person">♀</div>
+        <h3>የሴቶች ምዝገባ</h3>
+        <p>ለሴት ተማሪዎች የተለየ ምዝገባ</p>
+        <a href="female-register.html">ይመዝገቡ</a>
       </article>
-    </div>
-  </section>
-
-  <section id="student">
-    <div class="heading">
-      <h2>Student Portal</h2>
-      <p>Your learning resources in one place.</p>
-      <div class="gold-line"></div>
-    </div>
-
-    <div class="notice">
-      <strong>Welcome, students!</strong><br>
-      Begin by registering and joining the official Tibyan Medresa
-      Telegram channel. Lesson access, student accounts, attendance,
-      examinations, and results will be connected as these features are built.
-      <p>
-        <a href="#registration">Register now →</a>
-      </p>
     </div>
   </section>
 </main>
 
-<footer>
-  <strong>Tibyan Medresa</strong><br>
-  Islamic Knowledge • Learning • Progress<br>
-  <span>Knowledge that benefits</span>
+<a class="telegram" href="https://t.me/" aria-label="Telegram">➤</a>
+
+<footer id="about">
+  <div class="footer-logo"><span>۞</span></div>
+  <strong>TIBYAN QIR'AT CENTER</strong>
+  <div class="socials">
+    <a href="https://instagram.com/" aria-label="Instagram">◎</a>
+    <a href="https://facebook.com/" aria-label="Facebook">f</a>
+    <a href="https://t.me/" aria-label="Telegram">➤</a>
+    <a href="https://youtube.com/" aria-label="YouTube">▶</a>
+  </div>
+  <strong style="font-size:14px">@tibyanqirat</strong>
 </footer>
+
+<script>
+function moveBooks(direction) {
+  const row = document.querySelector('.book-row');
+  const books = Array.from(row.querySelectorAll('.book'));
+  if (direction > 0) row.insertBefore(books[0], books[books.length - 1].nextSibling);
+  else row.insertBefore(books[books.length - 1], books[0]);
+}
+</script>
 </body>
 </html>
