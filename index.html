@@ -1,21 +1,31 @@
+```html
 <!DOCTYPE html>
 <html lang="am">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ቲብያን መድረሳ | Tibyan Medresa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ቲብያን የቁርኣን ማዕከል | TIBYAN QIR'AT CENTER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root {
-  --gold: #D4A037;
-  --gold-light: #F3D58C;
-  --gold-deep: #8F5D08;
-  --text: #FFFFFF;
-  --dark-text: #583800;
+  --purple-dark: #4d184e;
+  --purple-header: #421343;
+  --gold-bg: #df9e45;
+  --gold-gradient-top: rgba(223, 158, 69, 0.72);
+  --gold-btn: #e5a74e;
+  --gold-btn-hover: #d8993f;
+  --navy-card: #111827;
+  --text-white: #ffffff;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -23,525 +33,508 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: Arial, "Noto Sans Ethiopic", sans-serif;
-  color: var(--text);
-  background-color: #8F5D08;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(212, 160, 55, 0.08) 0%,
-    rgba(212, 160, 55, 0.20) 15%,
-    rgba(212, 160, 55, 0.38) 30%,
-    rgba(212, 160, 55, 0.56) 45%,
-    rgba(184, 126, 24, 0.75) 65%,
-    rgba(153, 99, 10, 0.90) 82%,
-    #8F5D08 100%
-  );
-  background-attachment: fixed;
+  font-family: 'Noto Sans Ethiopic', 'Segoe UI', Arial, sans-serif;
+  color: var(--text-white);
+  background-color: #d18d36;
   min-height: 100vh;
+  position: relative;
+}
+
+/* BACKGROUND WRAPPER WITH FADE */
+.bg-wrapper {
+  background: 
+    linear-gradient(
+      to bottom,
+      rgba(66, 19, 67, 0.88) 0px,
+      rgba(66, 19, 67, 0.45) 120px,
+      rgba(223, 158, 69, 0.55) 300px,
+      rgba(223, 158, 69, 0.95) 550px,
+      #e09f45 750px,
+      #df9e45 100%
+    ),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85") center top / 100% auto no-repeat;
+  background-attachment: scroll;
 }
 
 /* HEADER */
-
 header {
-  min-height: 70px;
-  padding: 10px 4%;
-  background: rgba(143, 93, 8, 0.12);
+  height: 72px;
+  padding: 0 4%;
+  background-color: var(--purple-header);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 1px;
   text-decoration: none;
 }
 
-.logo {
-  width: 48px;
-  height: 48px;
-  border: 2px solid var(--gold-light);
-  outline: 1px solid rgba(255,255,255,0.65);
-  outline-offset: -5px;
+.brand-logo-icon {
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  color: white;
-  font-size: 25px;
-  clip-path: polygon(
-    50% 0,65% 19%,90% 13%,87% 39%,
-    100% 50%,87% 65%,91% 88%,65% 83%,
-    50% 100%,35% 83%,9% 88%,13% 65%,
-    0 50%,13% 35%,9% 13%,35% 19%
-  );
+  color: #eed6a1;
+  font-size: 32px;
 }
 
-.brand small {
-  display: block;
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-text .title-am {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.brand-text .title-en {
   font-size: 9px;
-  margin-top: 5px;
-  letter-spacing: 2px;
-  color: #FFF0C5;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #e5cd98;
 }
 
-nav {
+nav.main-nav {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 2.5vw, 30px);
+  gap: 28px;
 }
 
-nav a {
+nav.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+nav.main-nav a:hover {
+  opacity: 0.85;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: white;
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
 }
 
-nav a:hover {
-  color: #FFF0B8;
+.search-link i {
+  font-size: 14px;
 }
 
-.login {
-  background: rgba(255, 225, 160, 0.22);
-  border: 1px solid rgba(255,255,255,0.55);
-  color: white;
-  padding: 11px 20px;
-  border-radius: 25px;
+.btn-login {
+  background-color: var(--gold-btn);
+  color: #3d2200;
+  padding: 8px 22px;
+  border-radius: 20px;
   text-decoration: none;
-  white-space: nowrap;
-  font-weight: bold;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background 0.2s, transform 0.1s;
 }
 
-/* HERO */
+.btn-login:hover {
+  background-color: var(--gold-btn-hover);
+}
 
+/* HERO SECTION */
 .hero {
   text-align: center;
-  padding: 75px 5% 65px;
-  min-height: 330px;
-  background:
-    linear-gradient(
-      rgba(160, 108, 17, 0.18),
-      rgba(120, 77, 4, 0.30)
-    ),
-    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85")
-    center 42% / cover;
-  border-bottom: 1px solid rgba(255,255,255,0.20);
+  padding: 85px 20px 65px;
 }
 
 .hero h1 {
-  font-size: clamp(27px, 4.5vw, 46px);
-  margin: 12px 0 18px;
-  text-shadow: 0 2px 8px rgba(65,40,0,0.6);
+  font-size: clamp(32px, 5.2vw, 54px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  letter-spacing: 1px;
 }
 
 .hero p {
-  line-height: 1.9;
-  font-size: 15px;
-  max-width: 650px;
-  margin: 0 auto 27px;
-  text-shadow: 0 1px 5px rgba(65,40,0,0.7);
+  font-size: clamp(14px, 2vw, 17px);
+  color: #ffffff;
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  font-weight: 500;
+  line-height: 1.6;
 }
 
-.gold-btn {
-  display: inline-block;
-  background: rgba(255, 225, 160, 0.22);
-  border: 1px solid rgba(255,255,255,0.75);
-  color: white;
-  padding: 13px 27px;
+.btn-register-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--gold-btn);
+  color: #331a00;
+  padding: 11px 32px;
   border-radius: 28px;
   text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.2s;
 }
 
-.play {
-  background: rgba(255,255,255,0.22);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.45);
+.btn-register-hero:hover {
+  background-color: var(--gold-btn-hover);
+  transform: translateY(-2px);
+}
+
+.btn-register-hero .play-circle {
+  width: 22px;
+  height: 22px;
+  background: white;
   border-radius: 50%;
-  padding: 4px 7px;
-  margin-right: 7px;
+  display: grid;
+  place-items: center;
+  color: var(--gold-bg);
+  font-size: 10px;
+  padding-left: 2px;
 }
 
-/* LEVELS */
-
-.levels {
+/* SECTION TITLES */
+.section-title {
   text-align: center;
-  padding: 38px 5% 45px;
-  background: transparent;
-  border-bottom: 1px solid rgba(255,255,255,0.20);
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 35px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
-  font-size: 25px;
-  text-shadow: 0 1px 3px rgba(104,65,0,0.18);
+/* LEVEL CARDS SECTION */
+.levels-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 20px 65px;
 }
 
 .level-grid {
-  max-width: 900px;
-  margin: 32px auto 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
 }
 
 .level-card {
-  background: rgba(255, 221, 150, 0.10);
-  border: 1px solid rgba(255,255,255,0.48);
-  border-radius: 18px;
-  padding: 25px 20px;
-  min-height: 195px;
+  background-color: var(--navy-card);
+  border-radius: 20px;
+  padding: 35px 28px 30px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 8px 25px rgba(105,65,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
-.level-card .play-icon {
+.level-card .play-btn-large {
+  width: 48px;
+  height: 48px;
+  background-color: var(--gold-btn);
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.60);
-  color: white;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  font-size: 17px;
+  color: var(--navy-card);
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-left: 3px;
 }
 
 .level-card h3 {
-  font-size: 18px;
-  margin: 14px 0 10px;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #ffffff;
 }
 
 .level-card p {
   font-size: 13px;
-  line-height: 1.9;
-  color: white;
-  margin: 0 0 18px;
+  line-height: 1.8;
+  color: #d1d5db;
+  margin-bottom: 28px;
+  max-width: 320px;
+  min-height: 48px;
 }
 
-.small-btn {
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.65);
-  color: white;
+.btn-card-gold {
+  background-color: var(--gold-btn);
+  color: #331a00;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 22px;
+  font-weight: 700;
+  font-size: 13px;
   text-decoration: none;
-  border-radius: 25px;
-  padding: 10px 23px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-top: auto;
+  display: inline-block;
+  transition: background 0.2s;
 }
 
-/* LESSON RESOURCES */
+.btn-card-gold:hover {
+  background-color: var(--gold-btn-hover);
+}
 
-.resources {
+/* CAROUSEL / BOOKS SECTION */
+.books-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
   text-align: center;
-  padding: 38px 4% 50px;
-  background: transparent;
-  border-bottom: 1px solid rgba(255,255,255,0.20);
 }
 
-.resources h2 {
-  font-size: 21px;
-}
-
-.book-row {
+.carousel-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 4vw, 35px);
-  margin: 32px auto 50px;
-  max-width: 900px;
+  gap: 18px;
+  margin-top: 35px;
 }
 
-.book {
-  width: clamp(55px, 11vw, 100px);
-  aspect-ratio: 1 / 1.12;
-  flex-shrink: 0;
-  background: rgba(255, 221, 150, 0.12);
-  border: 1px solid rgba(255,255,255,0.60);
-  border-radius: 12px;
+.nav-arrow {
+  width: 44px;
+  height: 44px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  color: white;
-  font-size: clamp(25px, 5vw, 45px);
-  box-shadow: 0 7px 16px rgba(105,65,0,0.10);
-}
-
-.arrow {
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.60);
-  color: white;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  font-size: 23px;
+  font-size: 18px;
   cursor: pointer;
   flex-shrink: 0;
+  transition: transform 0.15s, background-color 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.arrow:hover {
-  background: rgba(255,255,255,0.32);
+.nav-arrow:hover {
+  background-color: #1a1a1a;
+  transform: scale(1.06);
 }
 
-.level-two {
-  margin-top: 48px;
+.books-row {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
-.coming {
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.65);
-  color: white;
-  padding: 14px 30px;
-  border-radius: 30px;
-  display: inline-block;
-  margin-top: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* REGISTRATION */
-
-.registration {
-  padding: 42px 5% 50px;
-  text-align: center;
-  background: transparent;
-  border-bottom: 1px solid rgba(255,255,255,0.20);
-}
-
-.registration h2 {
-  margin-bottom: 10px;
-}
-
-.registration > p {
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.reg-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 260px));
-  gap: 22px;
-  justify-content: center;
-  margin-top: 28px;
-}
-
-.reg-card {
-  background: rgba(255, 221, 150, 0.10);
-  border: 1px solid rgba(255,255,255,0.48);
+.book-card {
+  width: 125px;
+  height: 140px;
+  background-color: var(--navy-card);
   border-radius: 18px;
-  padding: 28px 17px;
-  box-shadow: 0 8px 22px rgba(105,65,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
 }
 
-.reg-card .person {
-  font-size: 35px;
-  color: white;
+.book-card:hover {
+  transform: translateY(-4px);
 }
 
-.reg-card h3 {
-  margin: 13px 0;
+.book-icon {
+  width: 52px;
+  height: 64px;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.reg-card p {
-  color: white;
-  font-size: 12px;
-  line-height: 1.8;
+.book-icon::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ffffff;
 }
 
-.reg-card a {
-  display: inline-block;
-  margin-top: 12px;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.65);
-  color: white;
+.book-icon::after {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff;
+}
+
+/* LEVEL 2 COMING SOON SECTION */
+.level2-section {
+  text-align: center;
+  padding: 20px 20px 80px;
+}
+
+.btn-purple-coming {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--purple-dark);
+  color: #ffffff;
+  padding: 13px 32px;
+  border-radius: 28px;
   text-decoration: none;
-  border-radius: 25px;
-  padding: 11px 20px;
-  font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: background 0.2s, transform 0.15s;
 }
 
-/* TELEGRAM */
+.btn-purple-coming:hover {
+  background-color: #3b113c;
+  transform: translateY(-2px);
+}
 
-.telegram {
+.btn-purple-coming i {
+  font-size: 18px;
+}
+
+/* FLOATING TELEGRAM BUTTON */
+.floating-telegram {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 48px;
-  height: 48px;
-  background: #25A5E8;
+  right: 25px;
+  bottom: 25px;
+  width: 54px;
+  height: 54px;
+  background-color: #26a5e4;
   color: white;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  text-decoration: none;
   font-size: 24px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.18);
-  z-index: 10;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  z-index: 99;
+  transition: transform 0.2s;
+}
+
+.floating-telegram:hover {
+  transform: scale(1.1);
 }
 
 /* FOOTER */
-
 footer {
-  background: transparent;
+  background-color: var(--purple-dark);
+  padding: 45px 20px 30px;
   text-align: center;
-  padding: 35px 15px 25px;
-  line-height: 1.9;
   color: white;
 }
 
 .footer-logo {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 18px;
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
   display: grid;
   place-items: center;
-  border: 3px double rgba(255,255,255,0.80);
-  transform: rotate(45deg);
-  font-size: 31px;
+  color: #eed6a1;
+  font-size: 50px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 22px;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.8);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   color: white;
-}
-
-.footer-logo span {
-  transform: rotate(-45deg);
-}
-
-.socials {
-  margin: 15px 0;
-}
-
-.socials a {
-  color: white;
-  font-size: 21px;
-  margin: 0 7px;
   text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s;
 }
 
-/* MOBILE */
+.social-icon:hover {
+  background-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
 
-@media (max-width: 600px) {
+.footer-handle {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
   header {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 12px 4%;
+    padding: 0 3%;
   }
 
-  .brand {
-    font-size: 14px;
-  }
-
-  .logo {
-    width: 42px;
-    height: 42px;
-  }
-
-  nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 15px;
-    padding-top: 8px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  .login {
-    padding: 9px 13px;
-  }
-
-  .hero {
-    padding: 60px 6% 50px;
-    min-height: 300px;
-  }
-
-  .hero p {
-    font-size: 13px;
+  nav.main-nav {
+    display: none;
   }
 
   .level-grid {
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .level-card {
-    padding: 18px 10px;
-    min-height: 205px;
-  }
-
-  .level-card h3 {
-    font-size: 14px;
-  }
-
-  .level-card p {
-    font-size: 11px;
-  }
-
-  .small-btn {
-    padding: 9px 12px;
-    font-size: 10px;
-  }
-
-  .book-row {
-    gap: 8px;
-  }
-
-  .book {
-    border-radius: 10px;
-  }
-
-  .arrow {
-    width: 29px;
-    height: 29px;
-    font-size: 18px;
-  }
-
-  .resources h2 {
-    font-size: 18px;
-  }
-
-  .reg-grid {
+  .books-row {
     gap: 12px;
   }
 
-  .reg-card {
-    padding: 22px 9px;
+  .book-card {
+    width: 100px;
+    height: 115px;
   }
 
-  .reg-card h3 {
+  .book-icon {
+    width: 42px;
+    height: 52px;
+  }
+
+  .nav-arrow {
+    width: 36px;
+    height: 36px;
     font-size: 14px;
   }
 
-  .reg-card p {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 360px) {
-  nav {
-    gap: 10px;
+  .brand-text .title-am {
+    font-size: 13px;
   }
 
-  nav a {
-    font-size: 10px;
-  }
-
-  .brand small {
-    letter-spacing: 1px;
-  }
-
-  .book-row {
-    gap: 5px;
+  .brand-text .title-en {
+    font-size: 8px;
   }
 }
 </style>
@@ -549,132 +542,149 @@ footer {
 
 <body>
 
-<header>
-  <a href="#home" class="brand">
-    <div class="logo">۞</div>
-    <div>
-      TIBYAN
-      <small>TIBYAN QIR'AT CENTER</small>
-    </div>
-  </a>
+<div class="bg-wrapper">
 
-  <nav>
-    <a href="#levels">ደረጃ 1</a>
-    <a href="#resources">ደረጃ 2</a>
-    <a href="#registration">ምዝገባ</a>
-    <a href="#about">ስለ እኛ</a>
-  </nav>
-
-  <a class="login" href="#registration">🔒 ግባ</a>
-</header>
-
-<main>
-
-  <section class="hero" id="home">
-    <h1>ተቋማችን የቁርአን ማዕከል</h1>
-    <p>
-      መልካም ዕውቀት እና ጠቃሚ ትምህርት
-      በቀላሉ የሚያገኙበት መድረሳ
-    </p>
-    <a href="#levels" class="gold-btn">
-      <span class="play">▶</span> ለመማር ይግቡ
+  <!-- HEADER -->
+  <header>
+    <a href="#home" class="brand">
+      <div class="brand-logo-icon">
+        <i class="fa-solid fa-kaaba"></i>
+      </div>
+      <div class="brand-text">
+        <span class="title-am">ቲብያን የቁርኣን ማዕከል</span>
+        <span class="title-en">TIBYAN QIR'AT CENTER</span>
+      </div>
     </a>
-  </section>
 
-  <section class="levels" id="levels">
-    <h2>የትምህርት ደረጃዎች</h2>
+    <nav class="main-nav">
+      <a href="#home">ዋና ገፅ</a>
+      <a href="#about">ስለ እኛ</a>
+      <a href="#lang">AMH ˅</a>
+    </nav>
 
-    <div class="level-grid">
-
-      <article class="level-card">
-        <div class="play-icon">▶</div>
-        <h3>ደረጃ 1 ትምህርት</h3>
-        <p>የቀድሞ ትምህርቶችን እና የተዘጋጁ ማስታወሻዎችን ያግኙ።</p>
-        <a href="#registration" class="small-btn">ትምህርቱን ይመልከቱ</a>
-      </article>
-
-      <article class="level-card">
-        <div class="play-icon">▶</div>
-        <h3>ደረጃ 2 ትምህርት</h3>
-        <p>የሚቀጥሉትን ዘጠኝ የትምህርት ዘርፎች ይወቁ።</p>
-        <a href="#registration" class="small-btn">በቅርቡ ይመጣል</a>
-      </article>
-
+    <div class="header-right">
+      <a href="#search" class="search-link">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>ፈለግ</span>
+      </a>
+      <a href="#login" class="btn-login">
+        <i class="fa-solid fa-lock"></i>
+        <span>ገባ</span>
+      </a>
     </div>
-  </section>
+  </header>
 
-  <section class="resources" id="resources">
-    <h2>የደረጃ 1 ትምህርት በ10 ወር ውስጥ የተሰጡ ትምህርቶች</h2>
+  <!-- MAIN CONTENT -->
+  <main>
 
-    <div class="book-row">
-      <button class="arrow" aria-label="Previous books" onclick="moveBooks(-1)">‹</button>
-      <div class="book">♧</div>
-      <div class="book">♧</div>
-      <div class="book">♧</div>
-      <div class="book">♧</div>
-      <div class="book">♧</div>
-      <button class="arrow" aria-label="Next books" onclick="moveBooks(1)">›</button>
-    </div>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <h1>ቲብያን የቁርኣን ማዕከል</h1>
+      <p>መሰረታዊ የሆኑ የሸሪዓ ዕውቀቶችን ካሉበት ሆነው የሚማሩበት መድረሳ</p>
+      <a href="#register" class="btn-register-hero">
+        <span class="play-circle"><i class="fa-solid fa-play"></i></span>
+        <span>ለመመዝገብ</span>
+      </a>
+    </section>
 
-    <div class="level-two">
-      <h2>የደረጃ 2 ትምህርት የሚጀምርበት ቀን</h2>
-      <a href="#registration" class="coming">⌛ &nbsp; በቅርቡ ይመጣል</a>
-    </div>
-  </section>
+    <!-- LEVEL CARDS SECTION -->
+    <section class="levels-section" id="levels">
+      <h2 class="section-title">የትምህርት ደረጃዎች</h2>
 
-  <section class="registration" id="registration">
-    <h2>የተማሪ ምዝገባ</h2>
-    <p>ለመመዝገብ የሚስማማዎትን ይምረጡ።</p>
+      <div class="level-grid">
 
-    <div class="reg-grid">
+        <!-- CARD 1 -->
+        <article class="level-card">
+          <div class="play-btn-large">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <h3>ደረጃ 1 ቁርኣን</h3>
+          <p>ለጀማሪዎች የሚሆኑ ዘጠኝ የዕውቀት ዘርፎችን ያካተተ ኪታቦች</p>
+          <a href="#details1" class="btn-card-gold">ተጨማሪ ይመልከቱ</a>
+        </article>
 
-      <article class="reg-card">
-        <div class="person">♂</div>
-        <h3>የወንዶች ምዝገባ</h3>
-        <p>ለወንድ ተማሪዎች የተለየ ምዝገባ</p>
-        <a href="male-register.html">ይመዝገቡ</a>
-      </article>
+        <!-- CARD 2 -->
+        <article class="level-card">
+          <div class="play-btn-large">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <h3>ደረጃ 2 ቁርኣን</h3>
+          <p>ለጀማሪዎች የተሰጡ ኪታቦችን ላጠናቀቁ ተማሪዎች የሚሆኑ ክፍለና ዷስ ኪታቦች</p>
+          <a href="#details2" class="btn-card-gold">በቅርቡ ይጠበቁ</a>
+        </article>
 
-      <article class="reg-card">
-        <div class="person">♀</div>
-        <h3>የሴቶች ምዝገባ</h3>
-        <p>ለሴት ተማሪዎች የተለየ ምዝገባ</p>
-        <a href="female-register.html">ይመዝገቡ</a>
-      </article>
+      </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- BOOKS CAROUSEL SECTION -->
+    <section class="books-section" id="level1-books">
+      <h2 class="section-title">ለደረጃ 1 ቁርኣን በ10ወር ውስጥ የሚሰጡ ኪታቦች ዝርዝር</h2>
 
-</main>
+      <div class="carousel-container">
+        <button class="nav-arrow" onclick="scrollBooks(-1)" aria-label="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-<a class="telegram" href="https://t.me/" aria-label="Telegram">➤</a>
+        <div class="books-row" id="booksRow">
+          <div class="book-card"><div class="book-icon"></div></div>
+          <div class="book-card"><div class="book-icon"></div></div>
+          <div class="book-card"><div class="book-icon"></div></div>
+          <div class="book-card"><div class="book-icon"></div></div>
+          <div class="book-card"><div class="book-icon"></div></div>
+        </div>
 
+        <button class="nav-arrow" onclick="scrollBooks(1)" aria-label="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- LEVEL 2 COMING SOON SECTION -->
+    <section class="level2-section" id="level2-books">
+      <h2 class="section-title">ለደረጃ 2 ቁርኣን የሚሰጡ ኪታቦች ዝርዝር</h2>
+      <a href="#coming-soon" class="btn-purple-coming">
+        <i class="fa-regular fa-hourglass-half"></i>
+        <span>በቅርቡ ይጠበቁ</span>
+      </a>
+    </section>
+
+  </main>
+
+</div>
+
+<!-- FLOATING TELEGRAM BUTTON -->
+<a href="https://t.me/tibyanqirat" class="floating-telegram" target="_blank" aria-label="Telegram">
+  <i class="fa-paper-plane"></i>
+</a>
+
+<!-- FOOTER -->
 <footer id="about">
-  <div class="footer-logo"><span>۞</span></div>
-  <strong>TIBYAN QIR'AT CENTER</strong>
-
-  <div class="socials">
-    <a href="https://instagram.com/" aria-label="Instagram">◎</a>
-    <a href="https://facebook.com/" aria-label="Facebook">f</a>
-    <a href="https://t.me/" aria-label="Telegram">➤</a>
-    <a href="https://youtube.com/" aria-label="YouTube">▶</a>
+  <div class="footer-logo">
+    <i class="fa-solid fa-kaaba"></i>
   </div>
 
-  <strong style="font-size:14px">@tibyanqirat</strong>
+  <div class="social-links">
+    <a href="https://instagram.com" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://facebook.com" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://t.me/tibyanqirat" class="social-icon" aria-label="Telegram"><i class="fa-paper-plane"></i></a>
+    <a href="https://tiktok.com" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://youtube.com" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+
+  <div class="footer-handle">@tibyanqirat</div>
 </footer>
 
 <script>
-function moveBooks(direction) {
-  const row = document.querySelector('.book-row');
-  const books = Array.from(row.querySelectorAll('.book'));
-
-  if (direction > 0) {
-    row.insertBefore(books[0], books[books.length - 1].nextSibling);
-  } else {
-    row.insertBefore(books[books.length - 1], books[0]);
-  }
+function scrollBooks(direction) {
+  const row = document.getElementById('booksRow');
+  const scrollAmount = 150;
+  row.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
 }
 </script>
 
 </body>
 </html>
+```
