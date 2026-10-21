@@ -54,10 +54,10 @@ nav.center-nav a:hover{opacity:.8}
 .books-grid::-webkit-scrollbar{display:none}
 .book-item-card{width:170px;min-height:260px;background:var(--navy-card);border:1px solid var(--navy-card-border);border-radius:16px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:transform .2s;padding-bottom:12px}
 .book-item-card:hover{transform:translateY(-4px)}
-.book-cover{width:100%;height:185px;object-fit:contain;background:#fff;display:block}
+.book-cover{width:100%;height:185px;object-fit:contain;object-position:center;background:#F4EBDD;display:block;padding:5px}
 .book-title{font-size:13px;font-weight:800;color:var(--gold-text);line-height:1.5;padding:10px 8px 4px;text-align:center;white-space:normal}
 .book-description{font-size:11px;line-height:1.5;color:#f1f1f1;padding:0 9px;text-align:center}
-@media(max-width:768px){.book-item-card{width:145px;min-height:235px}.book-cover{height:155px}.book-title{font-size:12px}}
+@media(max-width:768px){.book-item-card{width:145px;min-height:235px}.book-cover{height:155px;object-fit:contain;object-position:center;background:#F4EBDD;padding:4px}.book-title{font-size:12px}}
 .book-line-icon{width:50px;height:62px;border:2px solid #fff;border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center}
 .book-line-icon::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:#fff}
 .book-line-icon::after{content:'';width:18px;height:2px;background:#fff;box-shadow:0 6px 0 #fff,0 12px 0 #fff}
@@ -207,7 +207,7 @@ function scrollCarousel(dir){document.getElementById('booksGrid').scrollBy({left
         const topBackground = document.querySelector(".top-bg");
         if (topBackground) {
           topBackground.style.backgroundImage = "linear-gradient(to bottom, rgba(30,15,0,.12) 0%, rgba(223,168,90,.05) 45%, rgba(223,168,90,.5) 80%, #DFA85A 100%), url(\"" + heroUrl.replace(/\"/g, "%22") + "\")";
-          topBackground.style.backgroundSize = "100% 100%, 62% auto";
+          topBackground.style.backgroundSize = "100% 100%, 100% auto";
           topBackground.style.backgroundPosition = "center top, center top";
           topBackground.style.backgroundRepeat = "no-repeat, no-repeat";
           if (window.matchMedia("(max-width: 600px)").matches) topBackground.style.backgroundSize = "100% 100%, 100% auto";
