@@ -161,5 +161,63 @@ footer{background:var(--purple-brand);padding:48px 20px 32px;text-align:center;c
 <script>
 function scrollCarousel(dir){document.getElementById('booksGrid').scrollBy({left:dir*160,behavior:'smooth'})}
 </script>
+<script>
+(function(){
+  const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
+  function safeImageUrl(value){
+    try { const u = new URL(value); return (u.protocol === "https:" || u.protocol === "http:") ? u.href : ""; }
+    catch(e){ return ""; }
+  }
+  async function loadTibyanSiteContent(){
+    try {
+      const response = await fetch(SUPABASE_URL + "/rest/v1/site_content?select=content_value&content_key=eq.homepage", {
+        headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + SUPABASE_KEY }
+      });
+      if (!response.ok) return;
+      const rows = await response.json();
+      if (!rows.length || !rows[0].content_value) return;
+      const c = rows[0].content_value;
+      const setText = (selector, value) => {
+        const el = document.querySelector(selector);
+        if (el && typeof value === "string" && value.trim()) el.textContent = value;
+      };
+      setText(".hero-title", c.siteTitle);
+      setText(".hero-subtitle", c.siteSubtitle);
+      setText(".btn-hero-register span:not(.play-circle-icon)", c.registerText);
+      setText(".section-headline", c.levelsHeading);
+      const cards = document.querySelectorAll(".level-card");
+      if (cards[0]) { setTextFrom(cards[0], "h3", c.level1Title); setTextFrom(cards[0], "p", c.level1Description); }
+      if (cards[1]) { setTextFrom(cards[1], "h3", c.level2Title); setTextFrom(cards[1], "p", c.level2Description); }
+      const bookHeadings = document.querySelectorAll(".section-headline");
+      if (bookHeadings[1] && c.level1BooksHeading) bookHeadings[1].textContent = c.level1BooksHeading;
+      if (bookHeadings[2] && c.level2BooksHeading) bookHeadings[2].textContent = c.level2BooksHeading;
+      const logoUrl = safeImageUrl(c.logoUrl || "");
+      if (logoUrl) { const logo = document.querySelector(".brand-link .logo-container img"); if (logo) logo.src = logoUrl; }
+      const heroUrl = safeImageUrl(c.heroBackgroundUrl || "");
+      if (heroUrl) {
+        const hero = document.querySelector(".hero-section");
+        if (hero) { hero.style.backgroundImage = "linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.48)), url(\"" + heroUrl.replace(/\"/g, "%22") + "\")"; hero.style.backgroundSize = "cover"; hero.style.backgroundPosition = "center"; hero.style.borderRadius = "18px"; }
+      }
+      if (typeof c.brandColor === "string" && /^#[0-9a-f]{6}$/i.test(c.brandColor)) {
+        document.documentElement.style.setProperty("--purple-brand", c.brandColor);
+      }
+      if (typeof c.goldColor === "string" && /^#[0-9a-f]{6}$/i.test(c.goldColor)) {
+        document.documentElement.style.setProperty("--gold-btn", c.goldColor);
+        document.documentElement.style.setProperty("--bg-gold", c.goldColor);
+      }
+      const telegramUrl = safeImageUrl(c.telegramUrl || "");
+      if (telegramUrl) document.querySelectorAll('a[href*="t.me/"]').forEach(a => a.href = telegramUrl);
+    } catch (e) { console.warn("Website settings could not be loaded.", e); }
+  }
+  function setTextFrom(parent, selector, value) {
+    const el = parent.querySelector(selector);
+    if (el && typeof value === "string" && value.trim()) el.textContent = value;
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", loadTibyanSiteContent);
+  else loadTibyanSiteContent();
+})();
+</script>
+
 </body>
 </html>
