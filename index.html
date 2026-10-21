@@ -196,8 +196,14 @@ function scrollCarousel(dir){document.getElementById('booksGrid').scrollBy({left
       if (logoUrl) { const logo = document.querySelector(".brand-link .logo-container img"); if (logo) logo.src = logoUrl; }
       const heroUrl = safeImageUrl(c.heroBackgroundUrl || "");
       if (heroUrl) {
-        const hero = document.querySelector(".hero-section");
-        if (hero) { hero.style.backgroundImage = "linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.48)), url(\"" + heroUrl.replace(/\"/g, "%22") + "\")"; hero.style.backgroundSize = "cover"; hero.style.backgroundPosition = "center"; hero.style.borderRadius = "18px"; }
+        // Replace the existing background image for the whole top section, not the hero text block.
+        const topBackground = document.querySelector(".top-bg");
+        if (topBackground) {
+          topBackground.style.backgroundImage = "linear-gradient(to bottom, rgba(30,15,0,.12) 0%, rgba(223,168,90,.05) 45%, rgba(223,168,90,.5) 80%, #DFA85A 100%), url(\"" + heroUrl.replace(/\"/g, "%22") + "\")";
+          topBackground.style.backgroundSize = "cover";
+          topBackground.style.backgroundPosition = "center top";
+          topBackground.style.backgroundRepeat = "no-repeat";
+        }
       }
       if (typeof c.brandColor === "string" && /^#[0-9a-f]{6}$/i.test(c.brandColor)) {
         document.documentElement.style.setProperty("--purple-brand", c.brandColor);
