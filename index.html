@@ -52,10 +52,11 @@ nav.center-nav a:hover{opacity:.8}
 .carousel-arrow:hover{transform:scale(1.08)}
 .books-grid{display:flex;gap:22px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding:10px 5px}
 .books-grid::-webkit-scrollbar{display:none}
-.book-item-card{width:125px;height:140px;background:var(--navy-card);border:1px solid var(--navy-card-border);border-radius:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:transform .2s}
+.book-item-card{width:125px;min-height:174px;background:var(--navy-card);border:1px solid var(--navy-card-border);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:7px;padding:10px 7px 9px;flex-shrink:0;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:transform .2s}
 .book-item-card:hover{transform:translateY(-4px)}
-.book-photo-icon{width:78px;height:104px;object-fit:contain;object-position:center;display:block;background:transparent;border:0;box-shadow:none}
-@media(max-width:768px){.book-photo-icon{width:68px;height:90px}}
+.book-photo-icon{width:78px;height:96px;object-fit:contain;object-position:center;display:block;background:transparent;border:0;box-shadow:none;flex-shrink:0}
+.book-name{display:block;width:100%;color:#FAD383;font-size:10px;font-weight:700;line-height:1.5;text-align:center;overflow-wrap:anywhere}
+@media(max-width:768px){.book-item-card{width:105px;min-height:158px;padding:8px 6px}.book-photo-icon{width:68px;height:82px}.book-name{font-size:9px}}
 .level2-container{text-align:center;padding:10px 20px 85px}
 .btn-coming-purple{display:inline-flex;align-items:center;gap:10px;background:var(--purple-brand);color:#fff;padding:13px 34px;border-radius:28px;text-decoration:none;font-weight:800;font-size:15px;margin-top:15px;box-shadow:0 6px 20px rgba(0,0,0,.28);transition:all .15s}
 .btn-coming-purple:hover{background:var(--purple-dark);transform:translateY(-2px)}
@@ -124,14 +125,14 @@ footer{background:var(--purple-brand);padding:48px 20px 32px;text-align:center;c
     <div class="carousel-wrapper">
       <button class="carousel-arrow" onclick="scrollCarousel(-1)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
       <div class="books-grid" id="booksGrid">
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/H85Ppsg/image-bec1faf6-removebg-preview.png" alt="ኣዳቡል ሙዐሊም ወል ሙተዐሊም book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/S83By6c/image-1c966405-removebg-preview.png" alt="አርበዑን አን–ነወዊያህ book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/G427XD97/image-acdba364-removebg-preview.png" alt="ኡሱሉ ሰላሳ book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/p6kPrVPP/image-25e8f767-removebg-preview.png" alt="አል ቀዋዒዱል አርበዕ book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/k2BDF982/image-e4de522c-removebg-preview.png" alt="አል ኡርጁዘቱል ሚኢያህ book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/PsS1hWqJ/image-241a17c0-removebg-preview.png" alt="ቱሕፈቱል አጥፋል book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/SwsF9zGV/image-3b385980-removebg-preview.png" alt="መትኑ ሰፊነቲ ነጃህ book" loading="lazy"></div>
-        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/yFQGttvY/image-6c371f77-removebg-preview.png" alt="ሀዚሂ ደዕወቱና ወዐቂደቱና book" loading="lazy"></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/H85Ppsg/image-bec1faf6-removebg-preview.png" alt="ኣዳቡል ሙዐሊም ወል ሙተዐሊም" loading="lazy"><span class="book-name">ኣዳቡል ሙዐሊም ወል ሙተዐሊም</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/S83By6c/image-1c966405-removebg-preview.png" alt="አርበዑን አን–ነወዊያህ" loading="lazy"><span class="book-name">አርበዑን አን–ነወዊያህ</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/G427XD97/image-acdba364-removebg-preview.png" alt="ኡሱሉ ሰላሳ" loading="lazy"><span class="book-name">ኡሱሉ ሰላሳ</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/p6kPrVPP/image-25e8f767-removebg-preview.png" alt="አል ቀዋዒዱል አርበዕ" loading="lazy"><span class="book-name">አል ቀዋዒዱል አርበዕ</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/k2BDF982/image-e4de522c-removebg-preview.png" alt="አል ኡርጁዘቱል ሚኢያህ" loading="lazy"><span class="book-name">አል ኡርጁዘቱል ሚኢያህ</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/PsS1hWqJ/image-241a17c0-removebg-preview.png" alt="ቱሕፈቱል አጥፋል" loading="lazy"><span class="book-name">ቱሕፈቱል አጥፋል</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/SwsF9zGV/image-3b385980-removebg-preview.png" alt="መትኑ ሰፊነቲ ነጃህ" loading="lazy"><span class="book-name">መትኑ ሰፊነቲ ነጃህ</span></div>
+        <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/yFQGttvY/image-6c371f77-removebg-preview.png" alt="ሀዚሂ ደዕወቱና ወዐቂደቱና" loading="lazy"><span class="book-name">ሀዚሂ ደዕወቱና ወዐቂደቱና</span></div>
       </div>
       <button class="carousel-arrow" onclick="scrollCarousel(1)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
