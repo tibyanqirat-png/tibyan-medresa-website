@@ -3,81 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tibyan Medresa Registration</title>
+<title>Tibyan Medresa — Registration</title>
+
 <style>
-body{font-family:Arial;background:#F7F0E4;color:#4A2C20;padding:20px}
-main{max-width:450px;margin:20px auto;background:#fffdf8;padding:25px;border-radius:12px}
-h1{text-align:center}
-label{display:block;margin-top:16px;font-weight:bold}
-input{width:100%;padding:12px;margin-top:6px;box-sizing:border-box;border:1px solid #c9b89d;border-radius:6px}
-button{width:100%;padding:14px;margin-top:22px;background:#C49A45;border:0;border-radius:6px;font-weight:bold}
-#message{line-height:1.6}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:20px;
+  font-family:Arial,sans-serif;
+  background:#F7F0E4;color:#4A2C20;
+}
+main{max-width:520px;margin:20px auto}
+.panel{
+  background:white;padding:25px;border-radius:16px;
+  box-shadow:0 5px 22px #00000012;
+}
+h1,h2,h3{text-align:center}
+p{line-height:1.6}
+.logo-placeholder{
+  width:85px;height:85px;margin:0 auto 12px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px dashed #b7a58d;border-radius:50%;
+  color:#88765e;font-size:12px;text-align:center;
+}
+.gender-buttons{display:flex;gap:14px;margin-top:22px}
+.gender-buttons button{flex:1;padding:18px 8px}
+button{
+  cursor:pointer;border:0;border-radius:8px;
+  padding:13px;font-weight:bold;font-size:15px;
+}
+.male-button{background:#3478B9;color:white}
+.female-button{background:#C34D87;color:white}
+.back-button{background:#eee;color:#333;margin-bottom:15px}
+form label{display:block;margin-top:16px;font-weight:bold}
+input,select{
+  width:100%;padding:12px;margin-top:7px;
+  border:1px solid #c9b89d;border-radius:7px;
+  font-size:15px;background:white;
+}
+.phone-row{display:grid;grid-template-columns:145px 1fr;gap:8px}
+.submit-button{width:100%;margin-top:24px;color:white}
+.male-theme{background:#EAF4FF}
+.male-theme .submit-button{background:#3478B9}
+.female-theme{background:#FFF0F6}
+.female-theme .submit-button{background:#C34D87}
+.hidden{display:none!important}
+#message{overflow-wrap:anywhere}
+.small{font-size:13px;color:#65594b}
 </style>
 </head>
+
 <body>
 <main>
-<h1>Tibyan Medresa</h1>
-<h3>Student Registration</h3>
-<form id="registration">
-<label>Full name</label>
-<input id="name" required minlength="3">
+  <section id="genderPage" class="panel">
+    <div class="logo-placeholder">Tibyan logo</div>
+    <h1>ቲብያን መድረሳ</h1>
+    <h2>Level 1 Registration</h2>
+    <p style="text-align:center">Please select your registration category.</p>
 
-<label>Phone number</label>
-<input id="phone" type="tel" required minlength="7">
+    <div class="gender-buttons">
+      <button type="button" class="male-button" onclick="showForm('male')">
+        Male / ወንድ
+      </button>
+      <button type="button" class="female-button" onclick="showForm('female')">
+        Female / ሴት
+      </button>
+    </div>
+  </section>
 
-<label>Telegram username (optional)</label>
-<input id="telegram" placeholder="@username">
+  <section id="formPage" class="panel hidden">
+    <button type="button" class="back-button" onclick="goBack()">← Back</button>
+    <div class="logo-placeholder">Tibyan logo</div>
+    <h1 id="formTitle">Student Registration</h1>
 
-<label>Email (optional)</label>
-<input id="email" type="email">
+    <form id="registrationForm">
+      <label for="fullName">ሙሉ ስም — Full name *</label>
+      <input id="fullName" name="full_name" required
+             autocomplete="name"
+             placeholder="Student's name and father's name">
+      <p class="small">
+        Enter the student's name and father's name correctly.
+        This name will appear on the certificate.
+      </p>
 
-<button id="submit" type="submit">Register</button>
-<p id="message" role="status"></p>
-</form>
+      <label for="countryCode">ሀገር ኮድ — Country code *</label>
+      <div class="phone-row">
+        <select id="countryCode" required>
+          <option value="+251">Ethiopia (+251)</option>
+          <option value="+966">Saudi Arabia (+966)</option>
+          <option value="+971">UAE (+971)</option>
+          <option value="+965">Kuwait (+965)</option>
+          <option value="+968">Oman (+968)</option>
+          <option value="+974">Qatar (+974)</option>
+          <option value="+961">Lebanon (+961)</option>
+          <option value="+967">Yemen (+967)</option>
+        </select>
+        <input id="phone" name="phone" type="tel" required
+               inputmode="tel" autocomplete="tel-national"
+               placeholder="Phone number">
+      </div>
+
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email"
+             autocomplete="email" placeholder="Optional">
+
+      <label for="telegram">Telegram username</label>
+      <input id="telegram" name="telegram_username"
+             placeholder="@username (optional)">
+
+      <p class="small">
+        At least one contact method is required: enter an email
+        address, a Telegram username, or both.
+      </p>
+
+      <button id="submitButton" class="submit-button" type="submit">
+        Submit Registration
+      </button>
+      <p id="message" role="status" aria-live="polite"></p>
+    </form>
+  </section>
 </main>
+
 <script>
 const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
 const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
 
-document.getElementById("registration").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const button = document.getElementById("submit");
-  const message = document.getElementById("message");
-  button.disabled = true;
-  message.textContent = "Submitting registration...";
+let selectedGender = "";
 
-  try {
-    const response = await fetch(
-      SUPABASE_URL + "/rest/v1/students",
-      {
-        method: "POST",
-        headers: {
-          "apikey": SUPABASE_KEY,
-          "Authorization": "Bearer " + SUPABASE_KEY,
-          "Content-Type": "application/json",
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify({
-          full_name: document.getElementById("name").value.trim(),
-          phone: document.getElementById("phone").value.trim(),
-          telegram_username: document.getElementById("telegram").value.trim() || null,
-          email: document.getElementById("email").value.trim() || null
-        })
-      }
-    );
+function showForm(gender) {
+  selectedGender = gender;
 
-    if (!response.ok) {
-      throw new Error("Registration could not be saved.");
+  document.getElementById("genderPage").classList.add("hidden");
+  const page = document.getElementById("formPage");
+  page.classList.remove("hidden");
+
+  page.classList.remove("male-theme", "female-theme");
+  page.classList.add(gender === "male" ? "male-theme" : "female-theme");
+
+  document.getElementById("formTitle").textContent =
+    gender === "male" ? "Male Student Registration" :
+    "Female Student Registration";
+
+  document.getElementById("message").textContent = "";
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  document.getElementById("formPage").classList.add("hidden");
+  document.getElementById("genderPage").classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+document.getElementById("registrationForm").addEventListener(
+  "submit", async function(event) {
+    event.preventDefault();
+
+    const button = document.getElementById("submitButton");
+    const message = document.getElementById("message");
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const countryCode = document.getElementById("countryCode").value;
+    const email = document.getElementById("email").value.trim();
+    let telegram = document.getElementById("telegram").value.trim();
+
+    if (fullName.split(/\s+/).length < 2) {
+      message.textContent =
+        "Please enter the student's name and father's name.";
+      return;
     }
 
-    message.textContent = "Registration saved successfully!";
-    this.reset();
-  } catch (error) {
-    message.textContent = "Registration failed. Please check your connection and try again.";
-  } finally {
-    button.disabled = false;
+    if (!phone || !/^[0-9\s()-]{5,20}$/.test(phone)) {
+      message.textContent = "Please enter a valid phone number.";
+      return;
+    }
+
+    if (!email && !telegram) {
+      message.textContent =
+        "Please provide an email address or Telegram username.";
+      return;
+    }
+
+    if (telegram && !telegram.startsWith("@")) {
+      telegram = "@" + telegram;
+    }
+
+    const fullPhone = countryCode + phone.replace(/[\s()-]/g, "");
+
+    button.disabled = true;
+    message.textContent = "Submitting registration...";
+
+    try {
+      const response = await fetch(
+        SUPABASE_URL + "/rest/v1/student_registrations",
+        {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": "Bearer " + SUPABASE_KEY,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+          },
+          body: JSON.stringify({
+            full_name: fullName,
+            gender: selectedGender,
+            phone: fullPhone,
+            email: email || null,
+            telegram_username: telegram || null,
+            student_code: null,
+            verification_status: "pending",
+            is_approved: false
+          })
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Registration error:", errorText);
+        throw new Error("Registration could not be saved.");
+      }
+
+      message.textContent =
+        "Your registration was received. Contact verification and account approval are not yet activated.";
+      this.reset();
+
+    } catch (error) {
+      message.textContent =
+        "Registration failed. Please try again later.";
+    } finally {
+      button.disabled = false;
+    }
   }
-});
+);
 </script>
 </body>
 </html>
