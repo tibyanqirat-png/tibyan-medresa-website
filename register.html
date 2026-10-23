@@ -247,6 +247,7 @@ document.getElementById("registrationForm").addEventListener(
 
     } catch (error) {
       console.error("Registration/verification error:", error);
+message.textContent = "Error: " + error.message;
 
       message.textContent = registrationId
         ? "Your registration was saved, but the verification email could not be sent. Please contact the academy before registering again."
