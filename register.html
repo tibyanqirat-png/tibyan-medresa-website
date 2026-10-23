@@ -57,8 +57,8 @@ input,select{
   <section id="genderPage" class="panel">
     <div class="logo-placeholder">Tibyan logo</div>
     <h1>ቲብያን መድረሳ</h1>
-    <h2>Level 1 Registration</h2>
-    <p style="text-align:center">Please select your registration category.</p>
+    <h2><h2>የደረጃ 1 ቂርአት ምዝገባ</h2></h2>
+    <p style="text-align:center">እባክዎ ፆታዎን ይምረጡ.</p>
 
     <div class="gender-buttons">
       <button type="button" class="male-button" onclick="showForm('male')">
@@ -73,16 +73,15 @@ input,select{
   <section id="formPage" class="panel hidden">
     <button type="button" class="back-button" onclick="goBack()">← Back</button>
     <div class="logo-placeholder">Tibyan logo</div>
-    <h1 id="formTitle">Student Registration</h1>
+    <h1 id="formTitle">የደረጃ 1 ቂርአት ምዝገባ</h1>
 
     <form id="registrationForm">
       <label for="fullName">ሙሉ ስም — Full name *</label>
       <input id="fullName" name="full_name" required
              autocomplete="name"
-             placeholder="Student's name and father's name">
+             placeholder="ሙሉ ስም እስከ አባት ያስገቡ">
       <p class="small">
-        Enter the student's name and father's name correctly.
-        This name will appear on the certificate.
+        ትምህርቱን ስታጠናቅቁ የሚሰጣችሁ ሰርተፊኬት ላይ እንዲቀመጥላችሁ የምትፈልጉትን ስም አስገቡ.
       </p>
 
       <label for="countryCode">ሀገር ኮድ — Country code *</label>
@@ -111,12 +110,11 @@ input,select{
              placeholder="@username (optional)">
 
       <p class="small">
-        At least one contact method is required: enter an email
-        address, a Telegram username, or both.
+        ከኢሜል አድራሻ እና ከቴሌግራም username ቢያንስ አንዱን ማስገባት አለብዎት.
       </p>
 
       <button id="submitButton" class="submit-button" type="submit">
-        Submit Registration
+        ይመዝገቡ
       </button>
       <p id="message" role="status" aria-live="polite"></p>
     </form>
@@ -140,8 +138,8 @@ function showForm(gender) {
   page.classList.add(gender === "male" ? "male-theme" : "female-theme");
 
   document.getElementById("formTitle").textContent =
-    gender === "male" ? "Male Student Registration" :
-    "Female Student Registration";
+    gender === "male" ? "የደረጃ 1 ቂርአት ምዝገባ - ወንድ" :
+    "የደረጃ 1 ቂርአት ምዝገባ - ሴት";
 
   document.getElementById("message").textContent = "";
   window.scrollTo(0, 0);
@@ -168,18 +166,18 @@ document.getElementById("registrationForm").addEventListener(
 
     if (fullName.split(/\s+/).length < 2) {
       message.textContent =
-        "Please enter the student's name and father's name.";
+        "እባክዎ የተማሪውን ስም እስከ አባት ያስገቡ.";
       return;
     }
 
     if (!phone || !/^[0-9\s()-]{5,20}$/.test(phone)) {
-      message.textContent = "Please enter a valid phone number.";
+      message.textContent = "እባክዎ ትክክለኛ የስልክ ቁጥር ያስገቡ.";
       return;
     }
 
     if (!email && !telegram) {
       message.textContent =
-        "Please provide an email address or Telegram username.";
+        "ከኢሜል አድራሻ እና ከቴሌግራም username ቢያንስ አንዱን ያስገቡ.";
       return;
     }
 
@@ -190,7 +188,7 @@ document.getElementById("registrationForm").addEventListener(
     const fullPhone = countryCode + phone.replace(/[\s()-]/g, "");
 
     button.disabled = true;
-    message.textContent = "Submitting registration...";
+    message.textContent = "ምዝገባዎ በመላክ ላይ ነው...";
 
     try {
       const response = await fetch(
@@ -223,7 +221,7 @@ document.getElementById("registrationForm").addEventListener(
       }
 
       message.textContent =
-        "Your registration was received. Contact verification and account approval are not yet activated.";
+        "ምዝገባዎ ደርሶናል። የማረጋገጫና የመለያ ፈቃድ ሂደት ገና አልተጠናቀቀም።";
       this.reset();
 
     } catch (error) {
