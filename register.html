@@ -219,8 +219,7 @@ document.getElementById("registrationForm").addEventListener(
         throw new Error(await registrationResponse.text());
       }
 
-      const saved = await registrationResponse.json();
-      registrationId = saved[0]?.id;
+      registrationId = "saved";
 
       const authResponse = await fetch(
         SUPABASE_URL + "/auth/v1/otp",
