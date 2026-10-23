@@ -245,16 +245,12 @@ document.getElementById("registrationForm").addEventListener(
         "Registration received. Check your email for the verification message. Your student code will be assigned only after verification.";
       this.reset();
 
-    } catch (error) {
-      console.error("Registration/verification error:", error);
-message.textContent = "Error: " + error.message;
-
-      message.textContent = registrationId
-        ? "Your registration was saved, but the verification email could not be sent. Please contact the academy before registering again."
-        : "Registration failed. Please try again later.";
-    } finally {
-      button.disabled = false;
-    }
+   } catch (error) {
+  console.error("Registration error:", error);
+  message.textContent = "Error: " + error.message;
+} finally {
+  button.disabled = false;
+}
   }
 );
 </script>
