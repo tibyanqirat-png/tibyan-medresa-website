@@ -327,5 +327,77 @@ function scrollCarousel(dir){
 })();
 </script>
 
+<section id="register" style="max-width:550px;margin:40px auto;padding:25px;background:#fff8eb;color:#4A2C20;border-radius:16px;">
+  <h2 style="text-align:center;margin-bottom:20px;">የተማሪ ምዝገባ</h2>
+
+  <form id="registrationForm">
+    <label>ሙሉ ስም / Full name</label>
+    <input name="full_name" required style="width:100%;padding:12px;margin:8px 0 16px;">
+
+    <label>Gender / ጾታ</label>
+    <select name="gender" required style="width:100%;padding:12px;margin:8px 0 16px;">
+      <option value="">Choose</option>
+      <option value="male">Male / ወንድ</option>
+      <option value="female">Female / ሴት</option>
+    </select>
+
+    <label>Email (optional if Telegram is provided)</label>
+    <input name="email" type="email" style="width:100%;padding:12px;margin:8px 0 16px;">
+
+    <label>Telegram username (optional if email is provided)</label>
+    <input name="telegram_username" placeholder="@username" style="width:100%;padding:12px;margin:8px 0 16px;">
+
+    <button type="submit" style="width:100%;padding:13px;background:#D69A48;color:#fff;border:0;border-radius:8px;font-weight:bold;">
+      Submit Registration
+    </button>
+    <p id="registrationMessage" style="margin-top:15px;"></p>
+  </form>
+</section>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form).entries());
+  const message = document.getElementById("registrationMessage");
+  const email = data.email.trim();
+  const telegram = data.telegram_username.trim();
+
+  if (!email && !telegram) {
+    message.textContent = "Please provide an email or Telegram username.";
+    return;
+  }
+
+  data.email = email || null;
+  data.telegram_username = telegram || null;
+
+  message.textContent = "Submitting...";
+
+  try {
+    const response = await fetch(
+      "https://vldyuegaoptahhlsldor.supabase.co/rest/v1/student_registrations",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj",
+          "Authorization": "Bearer sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj",
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+
+    if (!response.ok) throw new Error(await response.text());
+
+    message.textContent = "Registration submitted! Verification setup is still pending.";
+    form.reset();
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Registration failed. Please try again.";
+  }
+});
+</script>
 </body>
 </html>
