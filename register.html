@@ -222,7 +222,10 @@ document.getElementById("registrationForm").addEventListener(
       registrationId = "saved";
 
       const authResponse = await fetch(
-        SUPABASE_URL + "/auth/v1/otp",
+        SUPABASE_URL + "/auth/v1/otp?redirect_to=" +
+  encodeURIComponent(
+    "https://tibyan-medresa-website.vercel.app/set-password.html"
+  ),
         {
           method: "POST",
           headers: {
