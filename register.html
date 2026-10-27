@@ -200,7 +200,7 @@ document.getElementById("registrationForm").addEventListener(
             "apikey": SUPABASE_KEY,
             "Authorization": "Bearer " + SUPABASE_KEY,
             "Content-Type": "application/json",
-            "Prefer": "return=minimal"
+            "Prefer": "return=representation"
           },
           body: JSON.stringify({
             full_name: fullName,
@@ -219,12 +219,19 @@ document.getElementById("registrationForm").addEventListener(
         throw new Error(await registrationResponse.text());
       }
 
-      registrationId = "saved";
+      const savedRegistration = await registrationResponse.json();
+
+if (!savedRegistration || !savedRegistration[0]?.id) {
+  throw new Error("Registration ID was not returned.");
+}
+
+registrationId = savedRegistration[0].id;
 
       const authResponse = await fetch(
         SUPABASE_URL + "/auth/v1/otp?redirect_to=" +
   encodeURIComponent(
-    "https://tibyan-medresa-website.vercel.app/set-password.html"
+    "https://tibyan-medresa-website.vercel.app/set-password.html?registration_id=" +
+encodeURIComponent(registrationId)
   ),
         {
           method: "POST",
