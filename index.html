@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ቲብያን የቂርአት ማዕከል | TIBYAN QIR'AT CENTER</title>
-<link rel="preconnect" href="https://googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cloudflare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{--purple-brand:#6A1B5E;--purple-dark:#55154B;--gold-btn:#E5A84B;--gold-btn-hover:#D79739;--gold-text:#FAD383;--navy-card:#111728;--navy-card-border:#1E293B;--bg-gold:#DFA85A}
@@ -16,10 +16,9 @@ html{scroll-behavior:smooth}
 body{font-family:'Noto Sans Ethiopic',system-ui,-apple-system,sans-serif;color:#fff;background:var(--bg-gold);min-height:100vh;overflow-x:hidden}
 .page-container{min-height:100vh;background:var(--bg-gold)}
 
-/* Background section with your provided bookshelf image */
+/* Background section */
 .top-bg{
   background-color:var(--bg-gold);
-  background-image: linear-gradient(to bottom, rgba(30,15,0,.5) 0%, rgba(223,168,90,.1) 45%, rgba(223,168,90,.6) 80%, #DFA85A 100%), url('image_JISPww.png');
   background-repeat:no-repeat;
   background-position:center top;
   background-size:cover;
@@ -31,16 +30,7 @@ body{font-family:'Noto Sans Ethiopic',system-ui,-apple-system,sans-serif;color:#
 header{height:68px;padding:0 4%;background:var(--purple-brand);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 3px 12px rgba(0,0,0,.3)}
 .brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
 .logo-container{width:56px;height:56px;flex-shrink:0;display:grid;place-items:center}
-
-/* Logo styling with clean background removal using multiply blending */
-.logo-container img, .footer-logo-box img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-  mix-blend-mode: multiply;
-}
-
+.logo-container img,.footer-logo-box img{width:100%;height:100%;object-fit:contain;display:block}
 .brand-titles{display:flex;flex-direction:column}
 .brand-title-am{font-size:15px;font-weight:800;color:var(--gold-text);line-height:1.2;letter-spacing:.3px}
 .brand-title-en{font-size:8.5px;font-weight:700;color:var(--gold-text);letter-spacing:.8px;opacity:.95}
@@ -115,10 +105,7 @@ nav.center-nav{display:none}
 
 <header>
   <a href="#home" class="brand-link">
-    <div class="logo-container">
-      <!-- Header Logo integration -->
-      <img src="image_1-JAHo.png" alt="ቲብያን የቂርአት ማዕከል">
-    </div>
+    <div class="logo-container"></div>
     <div class="brand-titles">
       <span class="brand-title-am">ቲብያን የቂርአት ማዕከል</span>
       <span class="brand-title-en">TIBYAN QIR'AT CENTER</span>
@@ -157,3 +144,188 @@ nav.center-nav{display:none}
         <div class="card-play-button"><i class="fa-solid fa-play"></i></div>
         <h3>ደረጃ 2 ቂርአት</h3>
         <p>ለጀማሪዎች የተሰጡ ኪታቦችን ላጠናቀቁ ተማሪዎች የሚሆኑ ከፍከፍ ያሉ ኪታቦች</p>
+        <a href="#level2-books" class="btn-card-action">በቅርቡ ይጠብቁ</a>
+      </article>
+    </div>
+  </section>
+
+  <div class="level1-head" id="level1-books">
+    <h2 class="section-headline">ለደረጃ 1 ቂርአት በ6ወር ውስጥ የሚሰጡ ኪታቦች ዝርዝር</h2>
+  </div>
+</div>
+
+<section class="carousel-section">
+  <div class="carousel-wrapper">
+    <button class="carousel-arrow" onclick="scrollCarousel(-1)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+
+    <div class="books-grid" id="booksGrid">
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/H85Ppsg/image-bec1faf6-removebg-preview.png" alt="ኣዳቡል ሙዐሊም ወል ሙተዐሊም" loading="lazy"><span class="book-name">ኣዳቡል ሙዐሊም ወል ሙተዐሊም</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/S83By6c/image-1c966405-removebg-preview.png" alt="አርበዑን አን–ነወዊያህ" loading="lazy"><span class="book-name">አርበዑን አን–ነወዊያህ</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/G427XD97/image-acdba364-removebg-preview.png" alt="ኡሱሉ ሰላሳ" loading="lazy"><span class="book-name">ኡሱሉ ሰላሳ</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/p6kPrVPP/image-25e8f767-removebg-preview.png" alt="አል ቀዋዒዱል አርበዕ" loading="lazy"><span class="book-name">አል ቀዋዒዱል አርበዕ</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/k2BDF982/image-e4de522c-removebg-preview.png" alt="አል ኡርጁዘቱል ሚኢያህ" loading="lazy"><span class="book-name">አል ኡርጁዘቱል ሚኢያህ</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/PsS1hWqJ/image-241a17c0-removebg-preview.png" alt="ቱሕፈቱል አጥፋል" loading="lazy"><span class="book-name">ቱሕፈቱል አጥፋል</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/ds95vwC3/Untitled-project-1-removebg-preview.png" alt="ታኢየቱ አቢ ኢስሐቅ" loading="lazy"><span class="book-name">ታኢየቱ አቢ ኢስሐቅ</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/SwsF9zGV/image-3b385980-removebg-preview.png" alt="መትኑ ሰፊነቲ ነጃህ" loading="lazy"><span class="book-name">መትኑ ሰፊነቲ ነጃህ</span></div>
+      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/yFQGttvY/image-6c371f77-removebg-preview.png" alt="ሀዚሂ ደዕወቱና ወዐቂደቱና" loading="lazy"><span class="book-name">ሀዚሂ ደዕወቱና ወዐቂደቱና</span></div>
+    </div>
+
+    <button class="carousel-arrow" onclick="scrollCarousel(1)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<section class="level2-container" id="level2-books">
+  <h2 class="section-headline">ለደረጃ 2 ቂርአት የሚሰጡ ኪታቦች ዝርዝር</h2>
+  <a href="#coming-soon" class="btn-coming-purple"><i class="fa-regular fa-hourglass-half"></i><span>በቅርቡ ይጠብቁ</span></a>
+</section>
+
+</div>
+
+<a href="https://t.me/tibyanqirat" class="floating-telegram-btn" target="_blank" aria-label="Telegram">
+  <i class="fa-brands fa-telegram" style="font-size:28px"></i>
+</a>
+
+<footer id="about">
+  <div class="footer-logo-box"></div>
+
+  <div class="social-icons-row">
+    <a href="https://instagram.com" class="social-circle-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://facebook.com" class="social-circle-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://t.me/tibyanqirat" class="social-circle-link" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+    <a href="https://tiktok.com" class="social-circle-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://youtube.com" class="social-circle-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+
+  <div class="footer-username">@tibyanqirat</div>
+</footer>
+
+<script>
+function scrollCarousel(dir){
+  document.getElementById('booksGrid').scrollBy({left:dir*160,behavior:'smooth'})
+}
+</script>
+
+<script>
+(function(){
+  const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
+
+  function safeImageUrl(value){
+    try {
+      const u = new URL(value);
+      return (u.protocol === "https:" || u.protocol === "http:") ? u.href : "";
+    } catch(e){
+      return "";
+    }
+  }
+
+  async function loadTibyanSiteContent(){
+    try {
+      const response = await fetch(SUPABASE_URL + "/rest/v1/site_content?select=content_value&content_key=eq.homepage", {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: "Bearer " + SUPABASE_KEY
+        }
+      });
+
+      if (!response.ok) return;
+
+      const rows = await response.json();
+      if (!rows.length || !rows[0].content_value) return;
+
+      const c = rows[0].content_value;
+
+      const setText = (selector, value) => {
+        const el = document.querySelector(selector);
+        if (el && typeof value === "string" && value.trim()) {
+          el.textContent = value;
+        }
+      };
+
+      setText(".hero-title", c.siteTitle);
+      setText(".hero-subtitle", c.siteSubtitle);
+      setText(".btn-hero-register span:not(.play-circle-icon)", c.registerText);
+      setText(".section-headline", c.levelsHeading);
+
+      const cards = document.querySelectorAll(".level-card");
+
+      if (cards[0]) {
+        setTextFrom(cards[0], "h3", c.level1Title);
+        setTextFrom(cards[0], "p", c.level1Description);
+      }
+
+      if (cards[1]) {
+        setTextFrom(cards[1], "h3", c.level2Title);
+        setTextFrom(cards[1], "p", c.level2Description);
+      }
+
+      const bookHeadings = document.querySelectorAll(".section-headline");
+
+      if (bookHeadings[1] && c.level1BooksHeading) {
+        bookHeadings[1].textContent = c.level1BooksHeading;
+      }
+
+      if (bookHeadings[2] && c.level2BooksHeading) {
+        bookHeadings[2].textContent = c.level2BooksHeading;
+      }
+
+      const logoUrl = safeImageUrl(c.logoUrl || "");
+
+      if (logoUrl) {
+        const logo = document.querySelector(".brand-link .logo-container img");
+        if (logo) logo.src = logoUrl;
+      }
+
+      const heroUrl = safeImageUrl(c.heroBackgroundUrl || "");
+
+      if (heroUrl) {
+        const topBackground = document.querySelector(".top-bg");
+
+        if (topBackground) {
+          topBackground.style.backgroundImage =
+            "linear-gradient(to bottom, rgba(30,15,0,.12) 0%, rgba(223,168,90,.05) 45%, rgba(223,168,90,.5) 80%, #DFA85A 100%), url(\"" +
+            heroUrl.replace(/\"/g, "%22") + "\")";
+
+          topBackground.style.backgroundSize = "cover";
+          topBackground.style.backgroundPosition = "center top";
+          topBackground.style.backgroundRepeat = "no-repeat";
+        }
+      }
+
+      if (typeof c.brandColor === "string" && /^#[0-9a-f]{6}$/i.test(c.brandColor)) {
+        document.documentElement.style.setProperty("--purple-brand", c.brandColor);
+      }
+
+      if (typeof c.goldColor === "string" && /^#[0-9a-f]{6}$/i.test(c.goldColor)) {
+        document.documentElement.style.setProperty("--gold-btn", c.goldColor);
+        document.documentElement.style.setProperty("--bg-gold", c.goldColor);
+      }
+
+      const telegramUrl = safeImageUrl(c.telegramUrl || "");
+
+      if (telegramUrl) {
+        document.querySelectorAll('a[href*="t.me/"]').forEach(a => a.href = telegramUrl);
+      }
+
+    } catch (e) {
+      console.warn("Website settings could not be loaded.", e);
+    }
+  }
+
+  function setTextFrom(parent, selector, value){
+    const el = parent.querySelector(selector);
+    if (el && typeof value === "string" && value.trim()) {
+      el.textContent = value;
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadTibyanSiteContent);
+  } else {
+    loadTibyanSiteContent();
+  }
+})();
+</script>
+  
+</body>
+</html>
