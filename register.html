@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tibyan Medresa — Registration</title>
+<title>TIBYAN QIR'AT CENTER — Registration</title>
 
 <style>
 *{box-sizing:border-box}
@@ -12,6 +12,34 @@ body{
   font-family:Arial,sans-serif;
   background:#F7F0E4;color:#4A2C20;
 }
+.site-header{
+  max-width:700px;
+  margin:0 auto 25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  text-align:left;
+}
+.site-logo{
+  width:76px;
+  height:76px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+.site-brand-am{
+  margin:0 0 6px;
+  color:#8A6428;
+  font-size:20px;
+  font-weight:bold;
+}
+.site-brand-en{
+  margin:0;
+  color:#4A2C20;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
 main{max-width:520px;margin:20px auto}
 .panel{
   background:white;padding:25px;border-radius:16px;
@@ -19,12 +47,6 @@ main{max-width:520px;margin:20px auto}
 }
 h1,h2,h3{text-align:center}
 p{line-height:1.6}
-.logo-placeholder{
-  width:85px;height:85px;margin:0 auto 12px;
-  display:flex;align-items:center;justify-content:center;
-  border:1px dashed #b7a58d;border-radius:50%;
-  color:#88765e;font-size:12px;text-align:center;
-}
 .gender-buttons{display:flex;gap:14px;margin-top:22px}
 .gender-buttons button{flex:1;padding:18px 8px}
 button{
@@ -49,15 +71,34 @@ input,select{
 .hidden{display:none!important}
 #message{overflow-wrap:anywhere}
 .small{font-size:13px;color:#65594b}
+
+@media(max-width:400px){
+  .site-logo{width:60px;height:60px}
+  .site-brand-am{font-size:16px}
+  .site-brand-en{font-size:12px;letter-spacing:.5px}
+  .phone-row{grid-template-columns:120px 1fr}
+  main{margin-top:15px}
+}
 </style>
 </head>
 
 <body>
+
+<header class="site-header">
+  <img
+    class="site-logo"
+    src="https://i.ibb.co/spCtJVTh/Airbrush-IMAGE-ENHANCER-1792499386485-1792499386486-removebg-preview.png"
+    alt="Tibyan logo"
+  >
+  <div>
+    <p class="site-brand-am">ቲብያን የቂርአት ማዕከል</p>
+    <p class="site-brand-en">TIBYAN QIR'AT CENTER</p>
+  </div>
+</header>
+
 <main>
   <section id="genderPage" class="panel">
-    <div class="logo-placeholder">Tibyan logo</div>
-    <h1>ቲብያን መድረሳ</h1>
-    <h2><h2>የደረጃ 1 ቂርአት ምዝገባ</h2></h2>
+    <h1>የደረጃ 1 ቂርአት ምዝገባ</h1>
     <p style="text-align:center">እባክዎ ፆታዎን ይምረጡ.</p>
 
     <div class="gender-buttons">
@@ -72,7 +113,6 @@ input,select{
 
   <section id="formPage" class="panel hidden">
     <button type="button" class="back-button" onclick="goBack()">← Back</button>
-    <div class="logo-placeholder">Tibyan logo</div>
     <h1 id="formTitle">የደረጃ 1 ቂርአት ምዝገባ</h1>
 
     <form id="registrationForm">
@@ -84,7 +124,7 @@ input,select{
         ትምህርቱን ስታጠናቅቁ የሚሰጣችሁ ሰርተፊኬት ላይ እንዲቀመጥላችሁ የምትፈልጉትን ስም አስገቡ.
       </p>
 
-      <label for="countryCode">ስልክ ቁጥር — phone number*</label>
+      <label for="countryCode">ስልክ ቁጥር — phone number *</label>
       <div class="phone-row">
         <select id="countryCode" required>
           <option value="+251">Ethiopia (+251)</option>
@@ -101,16 +141,16 @@ input,select{
                placeholder="Phone number">
       </div>
 
-      <label for="email">Email address</label>
-      <input id="email" name="email" type="email"
-             autocomplete="email" placeholder="Optional">
+      <label for="email">Email address *</label>
+      <input id="email" name="email" type="email" required
+             autocomplete="email" placeholder="Your email address">
 
       <label for="telegram">Telegram username</label>
       <input id="telegram" name="telegram_username"
              placeholder="@username (optional)">
 
       <p class="small">
-        ከኢሜል አድራሻ እና ከቴሌግራም username ቢያንስ አንዱን ማስገባት አለብዎት.
+        ኢሜል አድራሻ ያስፈልጋል። ለምዝገባ ማረጋገጫ ኢሜልዎን ይክፈቱ።
       </p>
 
       <button id="submitButton" class="submit-button" type="submit">
@@ -138,8 +178,9 @@ function showForm(gender) {
   page.classList.add(gender === "male" ? "male-theme" : "female-theme");
 
   document.getElementById("formTitle").textContent =
-    gender === "male" ? "የደረጃ 1 ቂርአት ምዝገባ - ወንድ" :
-    "የደረጃ 1 ቂርአት ምዝገባ - ሴት";
+    gender === "male"
+      ? "የደረጃ 1 ቂርአት ምዝገባ - ወንድ"
+      : "የደረጃ 1 ቂርአት ምዝገባ - ሴት";
 
   document.getElementById("message").textContent = "";
   window.scrollTo(0, 0);
@@ -175,8 +216,7 @@ document.getElementById("registrationForm").addEventListener(
     }
 
     if (!email) {
-      message.textContent =
-        "For now, enter an email address. Telegram verification will be added separately.";
+      message.textContent = "Please enter your email address.";
       return;
     }
 
@@ -189,18 +229,16 @@ document.getElementById("registrationForm").addEventListener(
     button.disabled = true;
     message.textContent = "ምዝገባዎ በመላክ ላይ ነው...";
 
-    let registrationId = null;
-
     try {
       const registrationResponse = await fetch(
-        SUPABASE_URL + "/rest/v1/student_registrations",
+        SUPABASE_URL + "/rest/v1/student_registrations?select=id",
         {
           method: "POST",
           headers: {
             "apikey": SUPABASE_KEY,
             "Authorization": "Bearer " + SUPABASE_KEY,
             "Content-Type": "application/json",
-            "Prefer": "return=minimal"
+            "Prefer": "return=representation"
           },
           body: JSON.stringify({
             full_name: fullName,
@@ -219,12 +257,20 @@ document.getElementById("registrationForm").addEventListener(
         throw new Error(await registrationResponse.text());
       }
 
+      const registrations = await registrationResponse.json();
+      const registrationId = registrations?.[0]?.id;
+
+      if (!registrationId) {
+        throw new Error("Registration was received, but its ID could not be retrieved. Please contact the administrator before registering again.");
+      }
+
+      const redirectUrl =
+        "https://tibyan-medresa-website.vercel.app/set-password.html?registration_id=" +
+        encodeURIComponent(registrationId);
+
       const authResponse = await fetch(
         SUPABASE_URL + "/auth/v1/otp?redirect_to=" +
-  encodeURIComponent(
-    "https://tibyan-medresa-website.vercel.app/set-password.html?registration_id=" +
-encodeURIComponent(registrationId)
-  ),
+        encodeURIComponent(redirectUrl),
         {
           method: "POST",
           headers: {
@@ -232,10 +278,10 @@ encodeURIComponent(registrationId)
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-  email: email,
-  create_user: true,
-  gotrue_meta_security: {}
-})
+            email: email,
+            create_user: true,
+            gotrue_meta_security: {}
+          })
         }
       );
 
@@ -247,12 +293,12 @@ encodeURIComponent(registrationId)
         "Registration received. Check your email for the verification message. Your student code will be assigned only after verification.";
       this.reset();
 
-   } catch (error) {
-  console.error("Registration error:", error);
-  message.textContent = "Error: " + error.message;
-} finally {
-  button.disabled = false;
-}
+    } catch (error) {
+      console.error("Registration error:", error);
+      message.textContent = "Error: " + error.message;
+    } finally {
+      button.disabled = false;
+    }
   }
 );
 </script>
