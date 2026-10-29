@@ -5,140 +5,394 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tibyan Medresa — Admin</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f7f0e4;color:#4a2c20;font-family:Arial,sans-serif}header{background:#4a2c20;color:#fff;padding:22px 16px;text-align:center}header h1{margin:0 0 8px}header p{margin:0;color:#e4c47b}main{max-width:850px;margin:25px auto;padding:0 15px}.card{background:white;padding:22px;margin-bottom:20px;border-radius:12px;box-shadow:0 3px 12px #00000010}h2{margin-top:0;color:#805b2d}label{display:block;margin-top:15px;font-weight:bold}input,textarea{display:block;width:100%;padding:12px;margin-top:7px;border:1px solid #d5c6ad;border-radius:7px;font-size:16px;color:#4a2c20}textarea{min-height:78px;resize:vertical}input[type=color]{height:48px;padding:5px}button{background:#4a2c20;color:white;border:0;padding:12px 18px;border-radius:7px;margin-top:18px;font-size:16px;cursor:pointer}button:hover{background:#65402d}button:disabled{opacity:.6;cursor:wait}.note{color:#725f4c;line-height:1.5;overflow-wrap:anywhere}#lessonMessage,#siteMessage{font-weight:bold}.logout{background:#8a6a39}.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.section-note{margin-top:-6px}.subhead{margin:24px 0 4px;padding-bottom:8px;border-bottom:1px solid #eee2ce;color:#805b2d}@media(max-width:600px){.grid{grid-template-columns:1fr}.card{padding:17px}}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f0e4;color:#4a2c20;font-family:Arial,sans-serif}
+header{background:#4a2c20;color:#fff;padding:22px 16px;text-align:center}
+header h1{margin:0 0 8px}
+header p{margin:0;color:#e4c47b}
+main{max-width:850px;margin:25px auto;padding:0 15px}
+.card{background:white;padding:22px;margin-bottom:20px;border-radius:12px;box-shadow:0 3px 12px #00000010}
+h2{margin-top:0;color:#805b2d}
+label{display:block;margin-top:15px;font-weight:bold}
+input,textarea{display:block;width:100%;padding:12px;margin-top:7px;border:1px solid #d5c6ad;border-radius:7px;font-size:16px;color:#4a2c20}
+textarea{min-height:78px;resize:vertical}
+input[type=color]{height:48px;padding:5px}
+button{background:#4a2c20;color:white;border:0;padding:12px 18px;border-radius:7px;margin-top:18px;font-size:16px;cursor:pointer}
+button:hover{background:#65402d}
+button:disabled{opacity:.6;cursor:wait}
+.note{color:#725f4c;line-height:1.5;overflow-wrap:anywhere}
+#lessonMessage,#siteMessage{font-weight:bold}
+.logout{background:#8a6a39}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.section-note{margin-top:-6px}
+.subhead{margin:24px 0 4px;padding-bottom:8px;border-bottom:1px solid #eee2ce;color:#805b2d}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.card{padding:17px}}
 </style>
 </head>
 <body>
-<header><h1>ቲብያን መድረሳ</h1><p>Academy Administration</p></header>
+<header>
+  <h1>ቲብያን መድረሳ</h1>
+  <p>Academy Administration</p>
+</header>
+
 <main id="adminContent" style="display:none">
-<div class="card">
-<h2>🖥️ Website Editor</h2>
-<p class="note">Edit the main homepage text, links, images and colors here. Changes are saved in Supabase. The homepage must also be connected to these saved settings before they appear on the live site.</p>
-<form id="siteForm">
-<h3 class="subhead">Homepage text</h3>
-<label for="siteTitle">Main heading</label><input id="siteTitle" maxlength="200" required>
-<label for="siteSubtitle">Subtitle</label><textarea id="siteSubtitle" maxlength="1000"></textarea>
-<label for="registerText">Registration button text</label><input id="registerText" maxlength="100">
-<label for="levelsHeading">Course levels section heading</label><input id="levelsHeading" maxlength="200">
-<div class="grid">
-<div><label for="level1Title">Level 1 title</label><input id="level1Title" maxlength="200"></div>
-<div><label for="level2Title">Level 2 title</label><input id="level2Title" maxlength="200"></div>
-</div>
-<div class="grid">
-<div><label for="level1Description">Level 1 description</label><textarea id="level1Description" maxlength="1000"></textarea></div>
-<div><label for="level2Description">Level 2 description</label><textarea id="level2Description" maxlength="1000"></textarea></div>
-</div>
-<label for="level1BooksHeading">Level 1 books section heading</label><input id="level1BooksHeading" maxlength="200">
-<label for="level2BooksHeading">Level 2 books section heading</label><input id="level2BooksHeading" maxlength="200">
-<h3 class="subhead">Images and links</h3>
-<label for="logoUrl">Logo image URL</label><input id="logoUrl" type="url" placeholder="https://...">
-<label for="heroBackgroundUrl">Homepage background image URL</label><input id="heroBackgroundUrl" type="url" placeholder="https://...">
-<label for="telegramUrl">Telegram link</label><input id="telegramUrl" type="url" placeholder="https://t.me/...">
-<h3 class="subhead">Colors</h3>
-<p class="note section-note">Choose colors using the color pickers.</p>
-<div class="grid">
-<div><label for="brandColor">Header / brand color</label><input id="brandColor" type="color" value="#4A2C20"></div>
-<div><label for="goldColor">Gold accent color</label><input id="goldColor" type="color" value="#DFA85A"></div>
-</div>
-<button id="saveSiteButton" type="submit">Save website changes</button>
-<p id="siteMessage" class="note" role="status"></p>
-</form>
-</div>
-<div class="card">
-<h2>📚 Add a Lesson</h2><p class="note">Add an audio lesson and choose when students can access it.</p>
-<form id="lessonForm">
-<label for="title">Lesson title</label><input id="title" required maxlength="200">
-<label for="week">Week number</label><input id="week" type="number" min="1" required>
-<label for="audio">Audio file URL</label><input id="audio" type="url" placeholder="https://..." required>
-<label for="release">Release date and time</label><input id="release" type="datetime-local" required>
-<button id="saveButton" type="submit">Save lesson</button><p id="lessonMessage" class="note" role="status"></p>
-</form>
-</div>
-<div class="card"><h2>📝 Exam Planning</h2><p class="note">Exam creation, time limits, automatic grading and results will be connected in a later step.</p></div>
-<div class="card"><h2>👥 Student Management</h2><p class="note">Student management will be connected after the lesson system is tested.</p></div>
-<button class="logout" id="logoutButton">Log out</button>
+  <div class="card">
+    <h2>🖥️ Website Editor</h2>
+    <p class="note">Edit homepage text, social links, images and colors. Changes are saved in Supabase and appear on the homepage when its settings are connected.</p>
+
+    <form id="siteForm">
+      <h3 class="subhead">Homepage text</h3>
+
+      <label for="siteTitle">Main heading</label>
+      <input id="siteTitle" maxlength="200" required>
+
+      <label for="siteSubtitle">Subtitle</label>
+      <textarea id="siteSubtitle" maxlength="1000"></textarea>
+
+      <label for="registerText">Registration button text</label>
+      <input id="registerText" maxlength="100">
+
+      <label for="levelsHeading">Course levels section heading</label>
+      <input id="levelsHeading" maxlength="200">
+
+      <div class="grid">
+        <div>
+          <label for="level1Title">Level 1 title</label>
+          <input id="level1Title" maxlength="200">
+        </div>
+        <div>
+          <label for="level2Title">Level 2 title</label>
+          <input id="level2Title" maxlength="200">
+        </div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <label for="level1Description">Level 1 description</label>
+          <textarea id="level1Description" maxlength="1000"></textarea>
+        </div>
+        <div>
+          <label for="level2Description">Level 2 description</label>
+          <textarea id="level2Description" maxlength="1000"></textarea>
+        </div>
+      </div>
+
+      <label for="level1BooksHeading">Level 1 books section heading</label>
+      <input id="level1BooksHeading" maxlength="200">
+
+      <label for="level2BooksHeading">Level 2 books section heading</label>
+      <input id="level2BooksHeading" maxlength="200">
+
+      <h3 class="subhead">Images and links</h3>
+
+      <label for="logoUrl">Logo image URL</label>
+      <input id="logoUrl" type="url" placeholder="https://...">
+
+      <label for="heroBackgroundUrl">Homepage background image URL</label>
+      <input id="heroBackgroundUrl" type="url" placeholder="https://...">
+
+      <label for="telegramChannelUrl">Telegram channel URL (footer icon)</label>
+      <input id="telegramChannelUrl" type="url" placeholder="https://t.me/your_channel">
+
+      <label for="telegramAssistantUrl">Telegram assistant inbox URL (floating icon)</label>
+      <input id="telegramAssistantUrl" type="url" placeholder="https://t.me/your_bot_or_assistant">
+
+      <label for="instagramUrl">Instagram URL</label>
+      <input id="instagramUrl" type="url" placeholder="https://instagram.com/...">
+
+      <label for="facebookUrl">Facebook URL</label>
+      <input id="facebookUrl" type="url" placeholder="https://facebook.com/...">
+
+      <label for="tiktokUrl">TikTok URL</label>
+      <input id="tiktokUrl" type="url" placeholder="https://tiktok.com/@...">
+
+      <label for="youtubeUrl">YouTube URL</label>
+      <input id="youtubeUrl" type="url" placeholder="https://youtube.com/...">
+
+      <h3 class="subhead">Colors</h3>
+      <p class="note section-note">Choose colors using the color pickers.</p>
+
+      <div class="grid">
+        <div>
+          <label for="brandColor">Header / brand color</label>
+          <input id="brandColor" type="color" value="#4A2C20">
+        </div>
+        <div>
+          <label for="goldColor">Gold accent color</label>
+          <input id="goldColor" type="color" value="#DFA85A">
+        </div>
+      </div>
+
+      <button id="saveSiteButton" type="submit">Save website changes</button>
+      <p id="siteMessage" class="note" role="status"></p>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>📚 Add a Lesson</h2>
+    <p class="note">Add an audio lesson and choose when students can access it.</p>
+
+    <form id="lessonForm">
+      <label for="title">Lesson title</label>
+      <input id="title" required maxlength="200">
+
+      <label for="week">Week number</label>
+      <input id="week" type="number" min="1" required>
+
+      <label for="audio">Audio file URL</label>
+      <input id="audio" type="url" placeholder="https://..." required>
+
+      <label for="release">Release date and time</label>
+      <input id="release" type="datetime-local" required>
+
+      <button id="saveButton" type="submit">Save lesson</button>
+      <p id="lessonMessage" class="note" role="status"></p>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>📝 Exam Planning</h2>
+    <p class="note">Exam creation, time limits, automatic grading and results will be connected in a later step.</p>
+  </div>
+
+  <div class="card">
+    <h2>👥 Student Management</h2>
+    <p class="note">Student management will be connected after the lesson system is tested.</p>
+  </div>
+
+  <button class="logout" id="logoutButton">Log out</button>
 </main>
+
 <script>
 const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
 const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
+
 const DEFAULT_SITE = {
-  siteTitle:"ቲብያን የቁርኣን ማዕከል",
-  siteSubtitle:"መሠረታዊ የሆኑ የሸሪዓ ዕውቀቶችን ካሉበት ሆነው የሚማሩበት መድረሳ",
-  registerText:"ለመመዝገብ",
-  levelsHeading:"የትምህርት ደረጃዎች",
-  level1Title:"ደረጃ 1 ቁርኣን",
-  level1Description:"ለጀማሪዎች የሚሆኑ ዘጠኝ የዕውቀት ዘርፎችን ያካተተ ክታቦች",
-  level2Title:"ደረጃ 2 ቁርኣን",
-  level2Description:"ለጀማሪዎች የተሰጡ ክታቦችን ላጠናቀቁ ተማሪዎች የሚሆን ክፍለ ጊዜያት",
-  level1BooksHeading:"ለደረጃ 1 ቁርኣን በ10ወር ውስጥ የሚሰጡ ኪታቦች ዝርዝር",
-  level2BooksHeading:"ለደረጃ 2 ቁርኣን የሚሰጡ ኪታቦች ዝርዝር",
-  logoUrl:"", heroBackgroundUrl:"", telegramUrl:"https://t.me/tibyanqirat",
-  brandColor:"#4A2C20", goldColor:"#DFA85A"
+  siteTitle: "ቲብያን የቁርኣን ማዕከል",
+  siteSubtitle: "መሠረታዊ የሆኑ የሸሪዓ ዕውቀቶችን ካሉበት ሆነው የሚማሩበት መድረሳ",
+  registerText: "ለመመዝገብ",
+  levelsHeading: "የትምህርት ደረጃዎች",
+  level1Title: "ደረጃ 1 ቁርኣን",
+  level1Description: "ለጀማሪዎች የሚሆኑ ዘጠኝ የዕውቀት ዘርፎችን ያካተተ ክታቦች",
+  level2Title: "ደረጃ 2 ቁርኣን",
+  level2Description: "ለጀማሪዎች የተሰጡ ክታቦችን ላጠናቀቁ ተማሪዎች የሚሆን ክፍለ ጊዜያት",
+  level1BooksHeading: "ለደረጃ 1 ቁርኣን በ10ወር ውስጥ የሚሰጡ ኪታቦች ዝርዝር",
+  level2BooksHeading: "ለደረጃ 2 ቁርኣን የሚሰጡ ኪታቦች ዝርዝር",
+  logoUrl: "",
+  heroBackgroundUrl: "",
+  telegramChannelUrl: "https://t.me/tibyanqirat",
+  telegramAssistantUrl: "https://t.me/tibyanqirat",
+  instagramUrl: "https://instagram.com",
+  facebookUrl: "https://facebook.com",
+  tiktokUrl: "https://tiktok.com",
+  youtubeUrl: "https://youtube.com",
+  brandColor: "#4A2C20",
+  goldColor: "#DFA85A"
 };
+
 const fields = Object.keys(DEFAULT_SITE);
-function getHeaders(token, extra={}) { return { apikey: SUPABASE_KEY, Authorization: "Bearer " + token, ...extra }; }
+
+function getHeaders(token, extra = {}) {
+  return {
+    apikey: SUPABASE_KEY,
+    Authorization: "Bearer " + token,
+    ...extra
+  };
+}
+
 async function initializeAdmin() {
   const token = localStorage.getItem("tibyan_access_token");
-  if (!token) { window.location.href = "login.html"; return; }
+
+  if (!token) {
+    window.location.href = "login.html";
+    return;
+  }
+
   try {
-    const userResponse = await fetch(SUPABASE_URL + "/auth/v1/user", {headers:getHeaders(token)});
+    const userResponse = await fetch(SUPABASE_URL + "/auth/v1/user", {
+      headers: getHeaders(token)
+    });
+
     if (!userResponse.ok) throw new Error("Login expired");
+
     const user = await userResponse.json();
-    const adminResponse = await fetch(SUPABASE_URL + "/rest/v1/admin_users?select=user_id&user_id=eq." + encodeURIComponent(user.id), {headers:getHeaders(token)});
+
+    const adminResponse = await fetch(
+      SUPABASE_URL + "/rest/v1/admin_users?select=user_id&user_id=eq." +
+      encodeURIComponent(user.id),
+      { headers: getHeaders(token) }
+    );
+
     if (!adminResponse.ok) throw new Error("Could not verify admin");
+
     const admins = await adminResponse.json();
-    if (!admins.length) { document.body.innerHTML = "<main><h2>Access denied</h2><p>This account is not an administrator.</p></main>"; return; }
+
+    if (!admins.length) {
+      document.body.innerHTML =
+        "<main><h2>Access denied</h2><p>This account is not an administrator.</p></main>";
+      return;
+    }
+
     document.getElementById("adminContent").style.display = "block";
     await loadSiteContent(token);
+
   } catch (error) {
     console.error(error);
-    document.body.innerHTML = "<main><h2>Unable to verify access</h2><p>Please check your connection and log in again.</p><a href='login.html'>Go to login</a></main>";
+    document.body.innerHTML =
+      "<main><h2>Unable to verify access</h2><p>Please check your connection and log in again.</p><a href='login.html'>Go to login</a></main>";
   }
 }
+
 async function loadSiteContent(token) {
   const message = document.getElementById("siteMessage");
+
   try {
-    const response = await fetch(SUPABASE_URL + "/rest/v1/site_content?select=content_value&content_key=eq.homepage", {headers:getHeaders(token)});
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/site_content?select=content_value&content_key=eq.homepage",
+      { headers: getHeaders(token) }
+    );
+
     if (!response.ok) throw new Error(await response.text());
+
     const rows = await response.json();
-    const values = {...DEFAULT_SITE, ...(rows[0]?.content_value || {})};
-    fields.forEach(key => { const el=document.getElementById(key); if(el) el.value=values[key] ?? ""; });
-    message.textContent = rows.length ? "Saved website settings loaded." : "Ready. Save once to create your website settings.";
-  } catch (error) { console.error(error); message.textContent = "Could not load saved settings. Check Supabase permissions."; }
+    const saved = rows[0]?.content_value || {};
+
+    // Support the old telegramUrl setting without losing existing settings.
+    const values = {
+      ...DEFAULT_SITE,
+      ...saved,
+      telegramChannelUrl:
+        saved.telegramChannelUrl || saved.telegramUrl || DEFAULT_SITE.telegramChannelUrl
+    };
+
+    fields.forEach(key => {
+      const el = document.getElementById(key);
+      if (el) el.value = values[key] ?? "";
+    });
+
+    message.textContent = rows.length
+      ? "Saved website settings loaded."
+      : "Ready. Save once to create your website settings.";
+
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Could not load saved settings. Check Supabase permissions.";
+  }
 }
+
 document.getElementById("siteForm").addEventListener("submit", async function(e) {
   e.preventDefault();
-  const message=document.getElementById("siteMessage"), button=document.getElementById("saveSiteButton");
-  const token=localStorage.getItem("tibyan_access_token");
-  if(!token){message.textContent="Please log in again.";return;}
-  const content={}; fields.forEach(key=>{const el=document.getElementById(key);content[key]=el ? el.value.trim() : "";});
-  button.disabled=true; message.textContent="Saving website settings...";
+
+  const message = document.getElementById("siteMessage");
+  const button = document.getElementById("saveSiteButton");
+  const token = localStorage.getItem("tibyan_access_token");
+
+  if (!token) {
+    message.textContent = "Please log in again.";
+    return;
+  }
+
+  const content = {};
+
+  fields.forEach(key => {
+    const el = document.getElementById(key);
+    content[key] = el ? el.value.trim() : "";
+  });
+
+  // Keep the old key for compatibility with any older homepage code.
+  content.telegramUrl = content.telegramChannelUrl;
+
+  button.disabled = true;
+  message.textContent = "Saving website settings...";
+
   try {
-    const response=await fetch(SUPABASE_URL+"/rest/v1/site_content?on_conflict=content_key",{
-      method:"POST",headers:getHeaders(token,{"Content-Type":"application/json",Prefer:"resolution=merge-duplicates,return=minimal"}),
-      body:JSON.stringify({content_key:"homepage",content_value:content,updated_at:new Date().toISOString()})
-    });
-    if(!response.ok) throw new Error(await response.text());
-    message.textContent="Website settings saved! The live homepage will reflect them after we connect index.html.";
-  } catch(error) { console.error(error); message.textContent="Could not save website settings. Check Supabase permissions and try again."; }
-  finally {button.disabled=false;}
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/site_content?on_conflict=content_key",
+      {
+        method: "POST",
+        headers: getHeaders(token, {
+          "Content-Type": "application/json",
+          Prefer: "resolution=merge-duplicates,return=minimal"
+        }),
+        body: JSON.stringify({
+          content_key: "homepage",
+          content_value: content,
+          updated_at: new Date().toISOString()
+        })
+      }
+    );
+
+    if (!response.ok) throw new Error(await response.text());
+
+    message.textContent =
+      "Website settings saved! The homepage will use these links after its update is published.";
+
+  } catch (error) {
+    console.error(error);
+    message.textContent =
+      "Could not save website settings. Check Supabase permissions and try again.";
+  } finally {
+    button.disabled = false;
+  }
 });
+
 document.getElementById("lessonForm").addEventListener("submit", async function(e) {
   e.preventDefault();
-  const message=document.getElementById("lessonMessage"), button=document.getElementById("saveButton"), token=localStorage.getItem("tibyan_access_token");
-  if(!token){message.textContent="Please log in again.";return;}
-  const releaseDate=new Date(document.getElementById("release").value);
-  if(Number.isNaN(releaseDate.getTime())){message.textContent="Please choose a valid release date.";return;}
-  const lesson={title:document.getElementById("title").value.trim(),week_number:Number(document.getElementById("week").value),audio_url:document.getElementById("audio").value.trim(),release_at:releaseDate.toISOString()};
-  button.disabled=true;message.textContent="Saving lesson...";
-  try{
-    const response=await fetch(SUPABASE_URL+"/rest/v1/lessons",{method:"POST",headers:getHeaders(token,{"Content-Type":"application/json",Prefer:"return=minimal"}),body:JSON.stringify(lesson)});
-    if(!response.ok)throw new Error(await response.text());
-    message.textContent="Lesson saved successfully!";document.getElementById("lessonForm").reset();
-  }catch(error){console.error(error);message.textContent="Could not save. Check your login and Supabase settings.";}
-  finally{button.disabled=false;}
+
+  const message = document.getElementById("lessonMessage");
+  const button = document.getElementById("saveButton");
+  const token = localStorage.getItem("tibyan_access_token");
+
+  if (!token) {
+    message.textContent = "Please log in again.";
+    return;
+  }
+
+  const releaseDate = new Date(document.getElementById("release").value);
+
+  if (Number.isNaN(releaseDate.getTime())) {
+    message.textContent = "Please choose a valid release date.";
+    return;
+  }
+
+  const lesson = {
+    title: document.getElementById("title").value.trim(),
+    week_number: Number(document.getElementById("week").value),
+    audio_url: document.getElementById("audio").value.trim(),
+    release_at: releaseDate.toISOString()
+  };
+
+  button.disabled = true;
+  message.textContent = "Saving lesson...";
+
+  try {
+    const response = await fetch(SUPABASE_URL + "/rest/v1/lessons", {
+      method: "POST",
+      headers: getHeaders(token, {
+        "Content-Type": "application/json",
+        Prefer: "return=minimal"
+      }),
+      body: JSON.stringify(lesson)
+    });
+
+    if (!response.ok) throw new Error(await response.text());
+
+    message.textContent = "Lesson saved successfully!";
+    document.getElementById("lessonForm").reset();
+
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Could not save. Check your login and Supabase settings.";
+  } finally {
+    button.disabled = false;
+  }
 });
-document.getElementById("logoutButton").addEventListener("click",function(){localStorage.removeItem("tibyan_access_token");window.location.href="login.html";});
+
+document.getElementById("logoutButton").addEventListener("click", function() {
+  localStorage.removeItem("tibyan_access_token");
+  window.location.href = "login.html";
+});
+
 initializeAdmin();
 </script>
 </body>
