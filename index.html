@@ -3,34 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ቲብያን የቂርአት ማዕከል | TIBYAN QIR'AT CENTER</title>
+<title>ቲብያን የቁርዓን ማዕከል | TIBYAN QIR'AT CENTER</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
-:root{--purple-brand:#6A1B5E;--purple-dark:#55154B;--gold-btn:#E5A84B;--gold-btn-hover:#D79739;--gold-text:#FAD383;--navy-card:#111728;--navy-card-border:#1E293B;--bg-gold:#DFA85A}
+:root{--purple-brand:#4A2C20;--purple-dark:#352016;--gold-btn:#C49A45;--gold-btn-hover:#AD8537;--gold-text:#F5D58A;--navy-card:#4A3023;--navy-card-border:#755536;--bg-gold:#DFA85A}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans Ethiopic',system-ui,-apple-system,sans-serif;color:#fff;background:var(--bg-gold);min-height:100vh;overflow-x:hidden}
 .page-container{min-height:100vh;background:var(--bg-gold)}
-
-/* Background section */
-.top-bg{
-  background-color:var(--bg-gold);
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-size:cover;
-}
-
+.top-bg{background:linear-gradient(to bottom,rgba(74,44,32,.08) 0%,rgba(196,154,69,.12) 35%,rgba(196,154,69,.58) 72%,#DFA85A 100%),url("https://i.ibb.co/fGrG58ZD/Airbrush-IMAGE-ENHANCER-1792588872766-1792588872766.jpg") center top/cover no-repeat; background-color:#DFA85A;}
 .level1-head{padding:10px 20px 0}
 .level1-head .section-headline{margin-bottom:0;padding-bottom:30px}
-
 header{height:68px;padding:0 4%;background:var(--purple-brand);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 3px 12px rgba(0,0,0,.3)}
 .brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
 .logo-container{width:56px;height:56px;flex-shrink:0;display:grid;place-items:center}
-.logo-container img,.footer-logo-box img{width:100%;height:100%;object-fit:contain;display:block}
+.logo-container img,.footer-logo-box img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply}
 .brand-titles{display:flex;flex-direction:column}
 .brand-title-am{font-size:15px;font-weight:800;color:var(--gold-text);line-height:1.2;letter-spacing:.3px}
 .brand-title-en{font-size:8.5px;font-weight:700;color:var(--gold-text);letter-spacing:.8px;opacity:.95}
@@ -41,14 +31,12 @@ nav.center-nav a:hover{opacity:.8}
 .search-btn{display:flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font-size:13px;font-weight:600}
 .btn-login-header{background:var(--gold-btn);color:#3B1C00;padding:7px 22px;border-radius:20px;text-decoration:none;font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:7px;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:background-color .2s}
 .btn-login-header:hover{background:var(--gold-btn-hover)}
-
 .hero-section{text-align:center;padding:80px 20px 60px;max-width:900px;margin:0 auto}
 .hero-title{font-size:clamp(34px,5.5vw,56px);font-weight:900;margin-bottom:14px;text-shadow:0 3px 14px rgba(0,0,0,.5)}
 .hero-subtitle{font-size:clamp(14px,2.1vw,17px);font-weight:500;max-width:680px;margin:0 auto 32px;line-height:1.6;text-shadow:0 2px 8px rgba(0,0,0,.6)}
 .btn-hero-register{display:inline-flex;align-items:center;gap:10px;background:var(--gold-btn);color:#3B1C00;padding:11px 32px;border-radius:28px;text-decoration:none;font-weight:800;font-size:15px;box-shadow:0 4px 16px rgba(0,0,0,.22);transition:all .2s}
 .btn-hero-register:hover{background:var(--gold-btn-hover);transform:translateY(-2px)}
 .play-circle-icon{width:22px;height:22px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#DF9D41;font-size:9px;padding-left:2px}
-
 .section-headline{text-align:center;font-size:clamp(22px,3.8vw,32px);font-weight:800;margin-bottom:35px;text-shadow:0 2px 8px rgba(0,0,0,.25)}
 .levels-container{max-width:980px;margin:0 auto;padding:10px 20px 65px}
 .levels-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
@@ -58,24 +46,17 @@ nav.center-nav a:hover{opacity:.8}
 .level-card p{font-size:13px;line-height:1.85;color:#CBD5E1;margin-bottom:28px;max-width:320px;min-height:48px}
 .btn-card-action{background:var(--gold-btn);color:#3B1C00;padding:10px 28px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;display:inline-block;transition:background-color .2s}
 .btn-card-action:hover{background:var(--gold-btn-hover)}
-
 .carousel-section{max-width:1000px;margin:0 auto;padding:10px 20px 65px;text-align:center}
 .carousel-wrapper{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:0}
 .carousel-arrow{width:46px;height:46px;background:#000;color:#fff;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .15s}
 .carousel-arrow:hover{transform:scale(1.08)}
 .books-grid{display:flex;gap:22px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding:10px 5px}
 .books-grid::-webkit-scrollbar{display:none}
-.book-item-card{width:125px;min-height:174px;background:var(--navy-card);border:1px solid var(--navy-card-border);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:7px;padding:10px 7px 9px;flex-shrink:0;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:transform .2s}
+.book-item-card{width:125px;height:140px;background:var(--navy-card);border:1px solid var(--navy-card-border);border-radius:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:transform .2s}
 .book-item-card:hover{transform:translateY(-4px)}
-.book-photo-icon{width:78px;height:96px;object-fit:contain;object-position:center;display:block;background:transparent;border:0;box-shadow:none;flex-shrink:0}
-.book-name{display:block;width:100%;color:#FAD383;font-size:10px;font-weight:700;line-height:1.5;text-align:center;overflow-wrap:anywhere}
-
-@media(max-width:768px){
-.book-item-card{width:105px;min-height:158px;padding:8px 6px}
-.book-photo-icon{width:68px;height:82px}
-.book-name{font-size:9px}
-}
-
+.book-line-icon{width:50px;height:62px;border:2px solid #fff;border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center}
+.book-line-icon::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:#fff}
+.book-line-icon::after{content:'';width:18px;height:2px;background:#fff;box-shadow:0 6px 0 #fff,0 12px 0 #fff}
 .level2-container{text-align:center;padding:10px 20px 85px}
 .btn-coming-purple{display:inline-flex;align-items:center;gap:10px;background:var(--purple-brand);color:#fff;padding:13px 34px;border-radius:28px;text-decoration:none;font-weight:800;font-size:15px;margin-top:15px;box-shadow:0 6px 20px rgba(0,0,0,.28);transition:all .15s}
 .btn-coming-purple:hover{background:var(--purple-dark);transform:translateY(-2px)}
@@ -87,47 +68,35 @@ footer{background:var(--purple-brand);padding:48px 20px 32px;text-align:center;c
 .social-circle-link{width:34px;height:34px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--purple-brand);text-decoration:none;font-size:17px;transition:all .2s}
 .social-circle-link:hover{background:#f3e3f0;transform:translateY(-2px)}
 .footer-username{font-size:15px;font-weight:700;letter-spacing:.5px}
-
-@media(max-width:768px){
-nav.center-nav{display:none}
-.levels-grid{grid-template-columns:1fr;gap:24px}
-.books-grid{gap:14px}
-.book-item-card{width:105px;height:120px}
-.carousel-arrow{width:38px;height:38px;font-size:15px}
-.brand-title-am{font-size:13px}
-.brand-title-en{font-size:8px}
-}
+@media(max-width:768px){nav.center-nav{display:none}.levels-grid{grid-template-columns:1fr;gap:24px}.books-grid{gap:14px}.book-item-card{width:105px;height:120px}.carousel-arrow{width:38px;height:38px;font-size:15px}.brand-title-am{font-size:13px}.brand-title-en{font-size:8px}}
 </style>
 </head>
-
 <body>
 <div class="page-container">
-
-<header>
-  <a href="#home" class="brand-link">
-    <div class="logo-container"></div>
-    <div class="brand-titles">
-      <span class="brand-title-am">ቲብያን የቂርአት ማዕከል</span>
-      <span class="brand-title-en">TIBYAN QIR'AT CENTER</span>
+  <header>
+    <a href="#home" class="brand-link">
+      <div class="logo-container"><img src="https://i.ibb.co/spCtJVTh/Airbrush-IMAGE-ENHANCER-1792499386485-1792499386486-removebg-preview.png" alt="Tibyan Qir'at Center logo"></div>
+      <div class="brand-titles">
+        <span class="brand-title-am">ቲብያን የቁርኣን ማዕከል</span>
+        <span class="brand-title-en">TIBYAN QIR'AT CENTER</span>
+      </div>
+    </a>
+    <nav class="center-nav">
+      <a href="#home">ዋና ገፅ</a>
+      <a href="#about">ስለ እኛ</a>
+      <a href="#lang">AMH ˅</a>
+    </nav>
+    <div class="header-right-controls">
+      <a href="#search" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i><span>ፈለግ</span></a>
+      <a href="#login" class="btn-login-header"><i class="fa-solid fa-key"></i><span>ገባ</span></a>
     </div>
-  </a>
+  </header>
 
-  <nav class="center-nav">
-    <a href="#home">ዋና ገፅ</a>
-    <a href="#about">ስለ እኛ</a>
-  </nav>
-
-  <div class="header-right-controls">
-    <a href="#search" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i><span>ፈልግ</span></a>
-    <a href="#login" class="btn-login-header"><i class="fa-solid fa-key"></i><span>ግባ</span></a>
-  </div>
-</header>
-
-<div class="top-bg">
+  <div class="top-bg">
   <section class="hero-section" id="home">
-    <h1 class="hero-title">ቲብያን የቂርአት ማዕከል</h1>
+    <h1 class="hero-title">ቲብያን የቁርኣን ማዕከል</h1>
     <p class="hero-subtitle">መሠረታዊ የሆኑ የሸሪዓ ዕውቀቶችን ካሉበት ሆነው የሚማሩበት መድረሳ</p>
-    <a href="#levels" class="btn-hero-register"><span class="play-circle-icon"><i class="fa-solid fa-play"></i></span><span>ለመመዝገብ</span></a>
+    <a href="#register" class="btn-hero-register"><span class="play-circle-icon"><i class="fa-solid fa-play"></i></span><span>ለመመዝገብ</span></a>
   </section>
 
   <section class="levels-container" id="levels">
@@ -135,50 +104,42 @@ nav.center-nav{display:none}
     <div class="levels-grid">
       <article class="level-card">
         <div class="card-play-button"><i class="fa-solid fa-play"></i></div>
-        <h3>ደረጃ 1 ቂርአት</h3>
-        <p>ለጀማሪዎች የሚሆኑ ዘጠኝ የዕውቀት ዘርፎችን ያካተቱ ክታቦች</p>
-        <a href="register.html" class="btn-card-action">ተጨማሪ ይመልከቱ</a>
+        <h3>ደረጃ 1 ቁርኣን</h3>
+        <p>ለጀማሪዎች የሚሆኑ ዘጠኝ የዕውቀት ዘርፎችን ያካተተ ክታቦች</p>
+        <a href="#level1-books" class="btn-card-action">ተጨማሪ ይመልከቱ</a>
       </article>
-
       <article class="level-card">
         <div class="card-play-button"><i class="fa-solid fa-play"></i></div>
-        <h3>ደረጃ 2 ቂርአት</h3>
-        <p>ለጀማሪዎች የተሰጡ ኪታቦችን ላጠናቀቁ ተማሪዎች የሚሆኑ ከፍከፍ ያሉ ኪታቦች</p>
+        <h3>ደረጃ 2 ቁርኣን</h3>
+        <p>ለጀማሪዎች የተሰጡ ክታቦችን ላጠናቀቁ ተማሪዎች የሚሆን ክፍለ ጊዜያት</p>
         <a href="#level2-books" class="btn-card-action">በቅርቡ ይጠብቁ</a>
       </article>
     </div>
   </section>
 
   <div class="level1-head" id="level1-books">
-    <h2 class="section-headline">ለደረጃ 1 ቂርአት በ6ወር ውስጥ የሚሰጡ ኪታቦች ዝርዝር</h2>
+    <h2 class="section-headline">ለደረጃ 1 ቁርኣን በ10ወር ውስጥ የሚሰጡ ኪታቦች ዝርዝር</h2>
   </div>
-</div>
+  </div>
 
-<section class="carousel-section">
-  <div class="carousel-wrapper">
-    <button class="carousel-arrow" onclick="scrollCarousel(-1)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-
-    <div class="books-grid" id="booksGrid">
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/H85Ppsg/image-bec1faf6-removebg-preview.png" alt="ኣዳቡል ሙዐሊም ወል ሙተዐሊም" loading="lazy"><span class="book-name">ኣዳቡል ሙዐሊም ወል ሙተዐሊም</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/S83By6c/image-1c966405-removebg-preview.png" alt="አርበዑን አን–ነወዊያህ" loading="lazy"><span class="book-name">አርበዑን አን–ነወዊያህ</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/G427XD97/image-acdba364-removebg-preview.png" alt="ኡሱሉ ሰላሳ" loading="lazy"><span class="book-name">ኡሱሉ ሰላሳ</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/p6kPrVPP/image-25e8f767-removebg-preview.png" alt="አል ቀዋዒዱል አርበዕ" loading="lazy"><span class="book-name">አል ቀዋዒዱል አርበዕ</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/k2BDF982/image-e4de522c-removebg-preview.png" alt="አል ኡርጁዘቱል ሚኢያህ" loading="lazy"><span class="book-name">አል ኡርጁዘቱል ሚኢያህ</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/PsS1hWqJ/image-241a17c0-removebg-preview.png" alt="ቱሕፈቱል አጥፋል" loading="lazy"><span class="book-name">ቱሕፈቱል አጥፋል</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/ds95vwC3/Untitled-project-1-removebg-preview.png" alt="ታኢየቱ አቢ ኢስሐቅ" loading="lazy"><span class="book-name">ታኢየቱ አቢ ኢስሐቅ</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/SwsF9zGV/image-3b385980-removebg-preview.png" alt="መትኑ ሰፊነቲ ነጃህ" loading="lazy"><span class="book-name">መትኑ ሰፊነቲ ነጃህ</span></div>
-      <div class="book-item-card"><img class="book-photo-icon" src="https://i.ibb.co/yFQGttvY/image-6c371f77-removebg-preview.png" alt="ሀዚሂ ደዕወቱና ወዐቂደቱና" loading="lazy"><span class="book-name">ሀዚሂ ደዕወቱና ወዐቂደቱና</span></div>
+  <section class="carousel-section">
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow" onclick="scrollCarousel(-1)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="books-grid" id="booksGrid">
+        <div class="book-item-card"><div class="book-line-icon"></div></div>
+        <div class="book-item-card"><div class="book-line-icon"></div></div>
+        <div class="book-item-card"><div class="book-line-icon"></div></div>
+        <div class="book-item-card"><div class="book-line-icon"></div></div>
+        <div class="book-item-card"><div class="book-line-icon"></div></div>
+      </div>
+      <button class="carousel-arrow" onclick="scrollCarousel(1)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
+  </section>
 
-    <button class="carousel-arrow" onclick="scrollCarousel(1)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-  </div>
-</section>
-
-<section class="level2-container" id="level2-books">
-  <h2 class="section-headline">ለደረጃ 2 ቂርአት የሚሰጡ ኪታቦች ዝርዝር</h2>
-  <a href="#coming-soon" class="btn-coming-purple"><i class="fa-regular fa-hourglass-half"></i><span>በቅርቡ ይጠብቁ</span></a>
-</section>
-
+  <section class="level2-container" id="level2-books">
+    <h2 class="section-headline">ለደረጃ 2 ቁርኣን የሚሰጡ ኪታቦች ዝርዝር</h2>
+    <a href="#coming-soon" class="btn-coming-purple"><i class="fa-regular fa-hourglass-half"></i><span>በቅርቡ ይጠብቁ</span></a>
+  </section>
 </div>
 
 <a href="https://t.me/tibyanqirat" class="floating-telegram-btn" target="_blank" aria-label="Telegram">
@@ -186,8 +147,7 @@ nav.center-nav{display:none}
 </a>
 
 <footer id="about">
-  <div class="footer-logo-box"></div>
-
+  <div class="footer-logo-box"><img src="https://i.ibb.co/spCtJVTh/Airbrush-IMAGE-ENHANCER-1792499386485-1792499386486-removebg-preview.png" alt="Tibyan Qir'at Center logo"></div>
   <div class="social-icons-row">
     <a href="https://instagram.com" class="social-circle-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
     <a href="https://facebook.com" class="social-circle-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -195,137 +155,56 @@ nav.center-nav{display:none}
     <a href="https://tiktok.com" class="social-circle-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
     <a href="https://youtube.com" class="social-circle-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
   </div>
-
   <div class="footer-username">@tibyanqirat</div>
 </footer>
 
 <script>
-function scrollCarousel(dir){
-  document.getElementById('booksGrid').scrollBy({left:dir*160,behavior:'smooth'})
-}
+function scrollCarousel(dir){document.getElementById('booksGrid').scrollBy({left:dir*160,behavior:'smooth'})}
 </script>
-
 <script>
 (function(){
   const SUPABASE_URL = "https://vldyuegaoptahhlsldor.supabase.co";
   const SUPABASE_KEY = "sb_publishable_3NKxWzGph0mviWRGENEPYw_puAh7dxj";
-
   function safeImageUrl(value){
-    try {
-      const u = new URL(value);
-      return (u.protocol === "https:" || u.protocol === "http:") ? u.href : "";
-    } catch(e){
-      return "";
-    }
+    try { const u = new URL(value); return (u.protocol === "https:" || u.protocol === "http:") ? u.href : ""; }
+    catch(e){ return ""; }
   }
-
   async function loadTibyanSiteContent(){
     try {
       const response = await fetch(SUPABASE_URL + "/rest/v1/site_content?select=content_value&content_key=eq.homepage", {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: "Bearer " + SUPABASE_KEY
-        }
+        headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + SUPABASE_KEY }
       });
-
       if (!response.ok) return;
-
       const rows = await response.json();
       if (!rows.length || !rows[0].content_value) return;
-
       const c = rows[0].content_value;
-
       const setText = (selector, value) => {
         const el = document.querySelector(selector);
-        if (el && typeof value === "string" && value.trim()) {
-          el.textContent = value;
-        }
+        if (el && typeof value === "string" && value.trim()) el.textContent = value;
       };
-
       setText(".hero-title", c.siteTitle);
       setText(".hero-subtitle", c.siteSubtitle);
       setText(".btn-hero-register span:not(.play-circle-icon)", c.registerText);
       setText(".section-headline", c.levelsHeading);
-
       const cards = document.querySelectorAll(".level-card");
-
-      if (cards[0]) {
-        setTextFrom(cards[0], "h3", c.level1Title);
-        setTextFrom(cards[0], "p", c.level1Description);
-      }
-
-      if (cards[1]) {
-        setTextFrom(cards[1], "h3", c.level2Title);
-        setTextFrom(cards[1], "p", c.level2Description);
-      }
-
+      if (cards[0]) { setTextFrom(cards[0], "h3", c.level1Title); setTextFrom(cards[0], "p", c.level1Description); }
+      if (cards[1]) { setTextFrom(cards[1], "h3", c.level2Title); setTextFrom(cards[1], "p", c.level2Description); }
       const bookHeadings = document.querySelectorAll(".section-headline");
-
-      if (bookHeadings[1] && c.level1BooksHeading) {
-        bookHeadings[1].textContent = c.level1BooksHeading;
-      }
-
-      if (bookHeadings[2] && c.level2BooksHeading) {
-        bookHeadings[2].textContent = c.level2BooksHeading;
-      }
-
-      const logoUrl = safeImageUrl(c.logoUrl || "");
-
-      if (logoUrl) {
-        const logo = document.querySelector(".brand-link .logo-container img");
-        if (logo) logo.src = logoUrl;
-      }
-
-      const heroUrl = safeImageUrl(c.heroBackgroundUrl || "");
-
-      if (heroUrl) {
-        const topBackground = document.querySelector(".top-bg");
-
-        if (topBackground) {
-          topBackground.style.backgroundImage =
-            "linear-gradient(to bottom, rgba(30,15,0,.12) 0%, rgba(223,168,90,.05) 45%, rgba(223,168,90,.5) 80%, #DFA85A 100%), url(\"" +
-            heroUrl.replace(/\"/g, "%22") + "\")";
-
-          topBackground.style.backgroundSize = "cover";
-          topBackground.style.backgroundPosition = "center top";
-          topBackground.style.backgroundRepeat = "no-repeat";
-        }
-      }
-
-      if (typeof c.brandColor === "string" && /^#[0-9a-f]{6}$/i.test(c.brandColor)) {
-        document.documentElement.style.setProperty("--purple-brand", c.brandColor);
-      }
-
-      if (typeof c.goldColor === "string" && /^#[0-9a-f]{6}$/i.test(c.goldColor)) {
-        document.documentElement.style.setProperty("--gold-btn", c.goldColor);
-        document.documentElement.style.setProperty("--bg-gold", c.goldColor);
-      }
-
+      if (bookHeadings[1] && c.level1BooksHeading) bookHeadings[1].textContent = c.level1BooksHeading;
+      if (bookHeadings[2] && c.level2BooksHeading) bookHeadings[2].textContent = c.level2BooksHeading;
+      // Logo, hero background, and colors are fixed in CSS to prevent a flash of the old design.
       const telegramUrl = safeImageUrl(c.telegramUrl || "");
-
-      if (telegramUrl) {
-        document.querySelectorAll('a[href*="t.me/"]').forEach(a => a.href = telegramUrl);
-      }
-
-    } catch (e) {
-      console.warn("Website settings could not be loaded.", e);
-    }
+      if (telegramUrl) document.querySelectorAll('a[href*="t.me/"]').forEach(a => a.href = telegramUrl);
+    } catch (e) { console.warn("Website settings could not be loaded.", e); }
   }
-
-  function setTextFrom(parent, selector, value){
+  function setTextFrom(parent, selector, value) {
     const el = parent.querySelector(selector);
-    if (el && typeof value === "string" && value.trim()) {
-      el.textContent = value;
-    }
+    if (el && typeof value === "string" && value.trim()) el.textContent = value;
   }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadTibyanSiteContent);
-  } else {
-    loadTibyanSiteContent();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", loadTibyanSiteContent);
+  else loadTibyanSiteContent();
 })();
 </script>
-  
+
 </body>
 </html>
