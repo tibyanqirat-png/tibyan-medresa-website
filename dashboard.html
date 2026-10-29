@@ -4,56 +4,135 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Student Dashboard | Tibyan Medresa</title>
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#F7F0E4;color:#4A2C20}
-header{background:#4A2C20;color:white;padding:20px;text-align:center}
-header span{color:#C49A45}
-main{max-width:800px;margin:25px auto;padding:0 15px}
-.welcome,.card{background:#fffdf8;padding:22px;margin-bottom:16px;border:1px solid #e4d4b9;border-radius:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#F7F0E4;
+  color:#4A2C20;
+}
+header{
+  background:linear-gradient(180deg,#fffdf8,#F0E0C2);
+  padding:22px 15px;
+  text-align:center;
+  border-bottom:2px solid #C49A45;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.logo{
+  width:78px;
+  height:78px;
+  object-fit:contain;
+}
+.brand-text{text-align:left}
+.brand-text h1{
+  margin:0;
+  font-size:clamp(20px,4vw,30px);
+  color:#4A2C20;
+}
+.brand-text h1 span{color:#C49A45}
+.brand-text p{
+  margin:6px 0 0;
+  color:#78675a;
+  font-size:14px;
+}
+header .page-title{
+  margin:18px 0 0;
+  color:#4A2C20;
+  font-size:18px;
+}
+main{
+  max-width:800px;
+  margin:25px auto;
+  padding:0 15px;
+}
+.welcome,.card{
+  background:#fffdf8;
+  padding:22px;
+  margin-bottom:16px;
+  border:1px solid #e4d4b9;
+  border-radius:10px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:14px;
+}
 h2{margin-top:0}
-button{padding:11px 17px;background:#C49A45;border:0;border-radius:6px;font-weight:bold;cursor:pointer}
+button{
+  padding:11px 17px;
+  background:#C49A45;
+  color:#352216;
+  border:0;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:hover{background:#b58a35}
 .muted{color:#78675a;line-height:1.6}
+@media(max-width:420px){
+  .brand{flex-direction:column;gap:8px}
+  .brand-text{text-align:center}
+  .logo{width:68px;height:68px}
+}
 </style>
 </head>
+
 <body>
 <header>
-<h1>TIBYAN <span>MEDRESA</span></h1>
-<p>Student Dashboard</p>
+  <div class="brand">
+    <img
+      class="logo"
+      src="https://i.ibb.co/spCtJVTh/Airbrush-IMAGE-ENHANCER-1792499386485-1792499386486-removebg-preview.png"
+      alt="Tibyan logo"
+    >
+    <div class="brand-text">
+      <h1>ቲብያን <span>የቂርአት ማዕከል</span></h1>
+      <p>TIBYAN QIR'AT CENTER</p>
+    </div>
+  </div>
+  <p class="page-title">Student Dashboard</p>
 </header>
 
 <main>
-<div class="welcome">
-<h2 id="welcome">Loading your dashboard...</h2>
-<p class="muted" id="studentInfo"></p>
-<button onclick="logout()">Log out</button>
-</div>
+  <div class="welcome">
+    <h2 id="welcome">Loading your dashboard...</h2>
+    <p class="muted" id="studentInfo"></p>
+    <button onclick="logout()">Log out</button>
+  </div>
 
-<div class="grid">
-<div class="card">
-<h2>📚 Lessons</h2>
-<p class="muted">Your released weekly audio lessons will appear here.</p>
-<p>Lesson content will be added by the academy.</p>
-</div>
+  <div class="grid">
+    <div class="card">
+      <h2>📚 Lessons</h2>
+      <p class="muted">Your released weekly audio lessons will appear here.</p>
+      <p>Lesson content will be added by the academy.</p>
+    </div>
 
-<div class="card">
-<h2>📝 Exams</h2>
-<p class="muted">Your available subject examinations will appear here.</p>
-<p>Exams are not yet available.</p>
-</div>
+    <div class="card">
+      <h2>📝 Exams</h2>
+      <p class="muted">Your available subject examinations will appear here.</p>
+      <p>Exams are not yet available.</p>
+    </div>
 
-<div class="card">
-<h2>📊 Progress & Results</h2>
-<p class="muted">Your attendance, test results, and course progress will appear here.</p>
-<p>No results recorded yet.</p>
-</div>
+    <div class="card">
+      <h2>📊 Progress &amp; Results</h2>
+      <p class="muted">Your attendance, test results, and course progress will appear here.</p>
+      <p>No results recorded yet.</p>
+    </div>
 
-<div class="card">
-<h2>🏅 Certificate</h2>
-<p class="muted">Eligible students can view their verified certificate here.</p>
-<p>No certificate issued yet.</p>
-</div>
-</div>
+    <div class="card">
+      <h2>🏅 Certificate</h2>
+      <p class="muted">Eligible students can view their verified certificate here.</p>
+      <p>No certificate issued yet.</p>
+    </div>
+  </div>
 </main>
 
 <script>
