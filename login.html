@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Student Login | Tibyan Medresa</title>
+<title>Student Login | TIBYAN QIR'AT CENTER</title>
 
 <style>
 *{box-sizing:border-box}
@@ -14,33 +14,42 @@ body{
   color:#4A2C20;
   padding:20px;
 }
+.site-header{
+  max-width:700px;
+  margin:0 auto 25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  text-align:left;
+}
+.site-logo{
+  width:76px;
+  height:76px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+.site-brand-am{
+  margin:0 0 6px;
+  color:#8A6428;
+  font-size:20px;
+  font-weight:bold;
+}
+.site-brand-en{
+  margin:0;
+  color:#4A2C20;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
 main{
   max-width:420px;
-  margin:35px auto;
+  margin:0 auto 35px;
   background:#fffdf8;
   padding:28px;
   border-radius:14px;
   border:1px solid #e4d4b9;
   box-shadow:0 8px 25px rgba(74,44,32,.08);
-}
-.logo{
-  width:110px;
-  height:110px;
-  margin:0 auto 15px;
-  border:2px dashed #C49A45;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#8a7049;
-  font-size:14px;
-  overflow:hidden;
-}
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
 }
 h1{text-align:center;margin:0;color:#4A2C20}
 .subtitle{text-align:center;color:#78675a;margin:8px 0 24px}
@@ -69,19 +78,32 @@ button{
 button:disabled{opacity:.6;cursor:wait}
 a{color:#765038}
 #message{line-height:1.5;overflow-wrap:anywhere}
+
+@media(max-width:400px){
+  .site-logo{width:60px;height:60px}
+  .site-brand-am{font-size:16px}
+  .site-brand-en{font-size:12px;letter-spacing:.5px}
+  main{padding:22px}
+}
 </style>
 </head>
 
 <body>
-<main>
-  <div class="logo">
-    <!-- Replace the placeholder with your logo URL later:
-    <img src="YOUR_LOGO_URL" alt="Tibyan Medresa Logo">
-    -->
-    Tibyan Logo
-  </div>
 
-  <h1>Tibyan Medresa</h1>
+<header class="site-header">
+  <img
+    class="site-logo"
+    src="https://i.ibb.co/spCtJVTh/Airbrush-IMAGE-ENHANCER-1792499386485-1792499386486-removebg-preview.png"
+    alt="Tibyan logo"
+  >
+  <div>
+    <p class="site-brand-am">ቲብያን የቂርአት ማዕከል</p>
+    <p class="site-brand-en">TIBYAN QIR'AT CENTER</p>
+  </div>
+</header>
+
+<main>
+  <h1>Student Login</h1>
   <p class="subtitle">Welcome back to your learning journey</p>
 
   <h3>Student Login</h3>
